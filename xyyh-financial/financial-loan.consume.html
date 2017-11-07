@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/swiper-3.3.1.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-loan.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+
+	<title>消费贷款</title>
+</head>
+<body class="pt">
+	<!-- navbar -->
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>消费贷款</h1>
+	</header>
+
+	<div class="finacial_banner">
+		<div class="swiper-container">
+		  <div class="swiper-wrapper">
+		   		<a class="swiper-slide"><img src="images/banner_loan.png" alt="兴业银行长沙分行"></a>
+		  </div>
+		  <div class="swiper-pagination"></div>
+		</div>
+	</div>
+	
+	<section class="content">
+		<h2>消费贷款</h2>
+		<ul class="consume_modelist">
+			<li class="borderBox" onclick="window.location.href='financial-loan.info.html'"><span><i class="icofont ico-loan" style="color:#ee4c33"></i></span><hgroup><h3>快速消费贷</h3><h4>有房就能贷</h4></hgroup></li>
+			<li class="borderBox" onclick="window.location.href='financial-loan.info.html'"><span><i class="icofont ico-homewodkzydk" style="color:#ff8400"></i></span><hgroup><h3>按揭联动贷</h3><h4>房子有贷还能贷</h4></hgroup></li>
+			<li class="borderBox" onclick="window.location.href='financial-loan.info.html'"><span><i class="icofont ico-13" style="color:#0891db"></i></span><hgroup><h3>社保贷</h3><h4>交社保，可贷款</h4></hgroup></li>
+			<li class="borderBox" onclick="window.location.href='financial-loan.info.html'"><span><i class="icofont ico-liuxuekaoshi" style="font-size:0.4rem;color:#ef7452"></i></span><hgroup><h3>留学贷</h3><h4>贴心关注，助您学业有成</h4></hgroup></li>
+			<li class="borderBox" onclick="window.location.href='financial-loan.info.html'"><span><i class="icofont ico-qiandai" style="color:#80c269"></i></span><hgroup><h3>综合消费贷</h3><h4>全面满足各类消费需求</h4></hgroup></li>
+		</ul>
+	</section>
+
+	
+
+</body>
+<script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
+<script>
+	var  banLen =$('.finacial_banner .swiper-container').find(".swiper-slide").length;
+    if(banLen > 1){
+        var mySwiper = new Swiper('.finacial_banner .swiper-container',{
+                pagination : '.swiper-pagination',
+            })
+    }
+
+</script>
+</html>

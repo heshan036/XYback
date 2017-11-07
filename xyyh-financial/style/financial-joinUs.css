@@ -1,0 +1,5 @@
+.recruitList{width: 100%}
+.recruitItem{margin-top: 0.2667rem;background: #fff;display: block;padding: 10px 0.4rem}
+.recruitItem h3{color: #333;font-size: 0.4rem;}
+.recruitItem p{margin: 5px 0;font-size: 0.32rem;color: #666}
+.recruitItem time{color: #a0a0a0}

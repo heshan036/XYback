@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/weui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/jquery-weui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-loan.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<title>社保贷</title>
+</head>
+<body class="pt">
+	<!-- navbar -->
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>查看我的额度</h1>
+		<a class="pr home"  href="financial-index.html"><i class="icofont ico-homefill"></i></a>
+	</header>
+
+
+	<form class="socialSecurityForm normalform" id="socialSecurityForm">
+		<section class="formPart">
+			<h2>个人信息</h2>
+			<ul>
+				<li><label for="name">姓名</label><input name="name" id="name" type="number" placeholder="输入姓名" required></li>
+			<li>
+				<label for="certificate">证件类型</label>
+				<input name="certificate" id="certificate" type="text" class="select" readonly value="身份证">
+			</li>
+			<li><label for="idnum">证件号码</label><input name="idnum" id="idnum" type="number" placeholder="输入证件号" required></li>
+			<li><label for="website">选择网点</label><input name="website" id="website" type="number" class="select" required readonly></li>
+			</ul>
+		</section>
+		<section class="formPart">
+			<h2>工作信息</h2>
+			<ul>
+				<li>
+					<label for="work_status">雇佣类型</label>
+					<input name="work_status" id="work_status" type="text" class="select" readonly value="劳动合同" required>
+				</li>
+				<li><label for="work_company">工作单位</label><input name="work_company" id="work_company" type="text" placeholder="请输入工作单位"  onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required></li>
+				<li><label for="workYear">在现工作单位工作年限</label><input name="workYear" id="workYear" type="number" placeholder="请输入数字" class="mr5" required>年</li>
+				<li><label for="isformalEmployee">是否正式员工<i class="icofont ico-help2"></i></label><input name="isformalEmployee" id="isformalEmployee" type="checkbox" value="2"><span class="checkswitch"></span></li>
+				<li>
+					<label for="work_address">工作所在城市</label>
+					<input type="text" name="work_address" id="work_address" value="湖南省 长沙市" readonly class="weui-input">
+				</li>
+			</ul>
+		</section>
+		<section class="formPart">
+			<h2>养老保险交缴信息</h2>
+			<ul>
+				<li><label for="ispayOldinsurance">是否缴纳养老保险<i class="icofont ico-help2"></i></label><input name="ispayOldinsurance" id="ispayOldinsurance" type="checkbox" value="2"><span class="checkswitch"></span></li>
+				<li style="display:none"><label for="payUnit">交缴机构</label><input name="payUnit" id="payUnit" type="text" placeholder="请输入交缴机构" required></li>
+				<li style="display:none"><label for="payCount">月缴费基数</label><input name="payCount" id="payCount" type="number" placeholder="请输入数字" class="mr5" required>年</li>
+			</ul>
+		</section>
+		<a class="btn_block bradius-3" onclick="javascript:submitInfo(this);">提交</a>
+	</form>
+
+	<div class="loadingWrapper none">
+		<div class="loadingBox">
+			<img src="images/timg.gif">
+			<p>提交中...</p>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/layer.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/city-picker.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery-weui.min.js"></script>
+<script>
+$(function(){
+	$("#ispayOldinsurance").click(function(){
+		if($(this).is(":checked")){
+			$(this).parent('li').siblings().show()
+		}else{
+			$(this).parent('li').siblings().hide()
+		}
+	})
+})
+     $("#householdAdd").cityPicker({
+        title: "选择户籍住址",
+        cssClass:'cityPicker',
+        onChange: function (picker, values, displayValues) {
+          console.log(values, displayValues);
+        }
+      });
+     $("#work_status").picker({
+		  title: "请选择雇佣类型",
+		  cssClass:'normalPicker',
+		  cols: [
+		    {
+		      textAlign: 'center',
+		      value:"劳动合同",
+		      values: [ '临时工', '劳动合同', '非全日制用工']
+		    }
+		  ],
+        onChange: function (picker, values, displayValues) {
+          console.log(values, displayValues);
+        }
+	});
+     $("#certificate").picker({
+		  title: "请选择证件类型",
+		  cssClass:'normalPicker',
+		  cols: [
+		    {
+		      textAlign: 'center',
+		      value:"身份证",
+		      values: ['护照', '港澳通行证', '身份证', '军人证', '签证']
+		    }
+		  ],
+        onChange: function (picker, values, displayValues) {
+          console.log(values, displayValues);
+        }
+	});
+
+     $("#work_address").cityPicker({
+        title: "选择工作所在城市",
+        cssClass:'cityPicker',
+        showDistrict:false,
+        onChange: function (picker, values, displayValues) {
+          console.log(values, displayValues);
+        }
+      });
+
+
+     function submitInfo(obj) {
+     	
+	 	var ajaxUrl =  msUrl+ "/jinrong/bank.php/home/dreamcard/first_house_credit"; //接口地址
+
+		var requiredFlag = 0; //表单中必填项的未填写数
+		var isformalEmployee = $("#isformalEmployee").val();//是否能提供房产抵押	isformalEmployee
+		var ispayOldinsurance = $("#ispayOldinsurance").val();//是否能提供房产抵押	ispayOldinsurance
+
+	 	var argues=$("#socialSecurityForm").serializeArray();//表单数据
+	 	var param = {};
+	    $.each(argues, function() {
+	      param[this.name] = this.value;//将表单数据数组转为对象
+	    });
+	    param.isformalEmployee=isformalEmployee//将checkbox加入表单数据
+	    param.ispayOldinsurance=ispayOldinsurance//将checkbox加入表单数据
+	    param=JSON.stringify(param);
+	    console.log(param)
+
+	    $("#socialSecurityForm input[required]").each(function(){
+	    	var _val=$(this).val();
+	    	if( _val == ''){
+	    		requiredFlag ++;
+	    	}
+	    })
+
+	    if(requiredFlag > 0){ //必填项没有填写，则提示信息
+	    	layer.msg('必填信息不能为空', {
+			     icon: 2,
+				 time: 2000 //2秒关闭（如果不配置，默认是3秒）
+			});
+			return
+	    }
+	    
+	    jQuery.support.cors = true;    
+		//通过Ajax提交后台
+		  $.ajax({
+			 url:ajaxUrl,
+		     type:"POST",
+		     dataType:"json",
+		     timeout:"3000",
+		     async: "false",
+		     data:param,
+			 beforeSend: function(){			
+			 	$(".loadingWrapper").show()
+			  },
+			 complete : function(){	
+			 	$(".loadingWrapper").hide()
+			 },				    	 	  
+		   	success:function(result){
+		   				console.log("============"+result.statusCode+"=="+result.statuszh);	    	
+       			   if(result.statusCode == 1000){
+       				 	layer.msg(result.statuszh, {
+								  icon: 1,
+								  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+									});	     					
+       			   		window.location.href='financial-loan.consume.mortgage.noApply.html';
+       			   }else{
+		       			layer.msg(result.statuszh, {
+							  icon: 2,
+							  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+						});		       				
+		      }          
+		     }
+		  });
+	}
+</script>
+</html>

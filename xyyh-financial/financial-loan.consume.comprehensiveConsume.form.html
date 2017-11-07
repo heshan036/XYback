@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/weui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/jquery-weui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-loan.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+
+	<title>综合消费贷</title>
+</head>
+<body class="pt">
+	<!-- navbar -->
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>综合消费贷申请</h1>
+		<!-- <a class="pr home"  href="financial-index.html"><i class="icofont ico-homefill"></i></a> -->
+	</header>
+
+
+	<form class="socialSecurityForm normalform" id="comprehensiveloanForm">
+		<section class="formPart">
+			<h2>个人信息</h2>
+			<ul>
+				<li><label for="name">姓名</label><input name="name" id="name" type="text" placeholder="请输入姓名" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required></li>
+				<li><label for="mobile">手机号码</label><input name="mobile" id="mobile" type="tel" placeholder="请输入手机号码" maxlength='11'  oninput="checkMobile(this.value);" onpropertychange="checkMobile(this.value)" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required></li>
+				<li class="getCode"><label for="VerifyCode">验证码</label><input name="vertify_message" id="VerifyCode" type="text" placeholder="请输入验证码" required><a class="getCode_btn" onclick="getCode(this);">获取验证码</a></li>
+				<li><label for="age">年龄</label><input name="age" id="age" type="number" placeholder="请输入真实年龄" class="mr5" required>岁</li>
+				<li>
+					<label for="householdAdd">户籍住址</label>
+					<input type="text" name="address" id="householdAdd" value="湖南省 长沙市 天心区" readonly class="weui-input">
+				</li>
+				<li class="infoAddress"><input name="home_infoAddress" id="home_infoAddress" type="text" placeholder="请输入街道、楼层、门牌号、房间号等" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required></li>
+				<li>
+					<label for="marry">婚姻状况</label>
+					<select name="marry" id="marry">
+						<option value="0">未婚</option>
+						<option value="1">已婚</option>
+					</select>
+				</li>
+			</ul>
+		</section>
+		<section class="formPart">
+			<h2>工作信息</h2>
+			<ul>
+				<li>
+					<label for="work_status">雇佣类型</label>
+					<input name="work_status" id="work_status" type="text" class="select" readonly value="劳动合同">
+				</li>
+				<li><label for="work_company">工作单位</label><input name="work_company" id="work_company" type="text" placeholder="请输入工作单位" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required></li>
+				<li>
+					<label for="work_address">工作所在城市</label>
+					<input type="text" name="work_address" id="work_address" value="湖南省 长沙市" readonly class="weui-input">
+				</li>
+				<li><label for="money_earn">税前月收入</label><input name="money_earn" id="money_earn" type="number" placeholder="请输入税前月收入" class="mr5" required>元</li>
+			</ul>
+		</section>
+		<section class="formPart">
+			<h2>房屋信息</h2>
+			<ul>
+				<li><label for="buildingName">拟抵押房产所在楼盘名称</label><input name="buildingName" id="buildingName" type="text" placeholder="请输入楼盘名称" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required></li>
+				<li><label for="houseOwner" class="twoLine">所有权人<small>（本人/配偶/其他人）</small></label><input name="houseOwner" id="houseOwner" type="text" placeholder="请输入所有人姓名" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required></li>
+				<li><label for="houseAge">房龄</label><input name="houseAge" id="houseAge" type="text" placeholder="如：1年零6个月" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required></li>
+				<li><label for="houseArea">建筑面积</label><input name="houseArea" id="houseArea" type="number" placeholder="请输入数字" class="mr5" required>㎡</li>
+			</ul>
+		</section>
+		<section class="formPart">
+			<h2>贷款信息</h2>
+			<ul>
+				<li><label for="applyCount">申请金额</label><input name="applyCount" id="applyCount" type="number" placeholder="请输入数字" class="mr5" required>元</li>
+				<li><label for="loanFunction">贷款用途</label><input name="loanFunction" id="loanFunction" type="text" placeholder="请输入贷款用途,如：购物" required></li>
+				<li><label for="isApplymortgage">是否能提供房产抵押<i class="icofont ico-help2"></i></label><input name="isApplymortgage" id="isApplymortgage" type="checkbox" value="2"><span class="checkswitch"></span></li>
+			</ul>
+		</section>
+		<a onclick="javascript:submitInfo(this);" class="btn_block bradius-3">提交</a>
+	</form>
+
+	<div class="loadingWrapper none">
+		<div class="loadingBox">
+			<img src="images/timg.gif">
+			<p>提交中...</p>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/layer.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/city-picker.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery-weui.min.js"></script>
+<script>
+     $("#householdAdd").cityPicker({
+        title: "选择户籍住址",
+        cssClass:'cityPicker',
+        onChange: function (picker, values, displayValues) {
+          //$("#address").val(displayValues);
+        }
+      });
+     $("#work_status").picker({
+		  title: "请选择雇佣类型",
+		  cssClass:'normalPicker',
+		  cols: [
+		    {
+		      textAlign: 'center',
+		      value:"劳动合同",
+		      values: [ '临时工', '劳动合同', '非全日制用工']
+		    }
+		  ],
+		  onChange: function (picker, values, displayValues) {
+       		 //$("#work_status").val(displayValues);
+        }
+	});
+     $("#work_address").cityPicker({
+        title: "选择工作所在城市",
+        showDistrict:false,
+        cssClass:'cityPicker',
+        onChange: function (picker, values, displayValues) {
+          //$("#work_address").val(displayValues);
+        }
+      });
+
+ //保存提交信息 
+ function submitInfo(obj) {
+ 	var ajaxUrl =  msUrl+ "/jinrong/bank.php/home/dreamcard/first_house_credit"; //接口地址
+
+	var requiredFlag = 0; //表单中必填项的未填写数
+	var isApplymortgage = $("#isApplymortgage").val();//是否能提供房产抵押	isApplymortgage
+
+ 	var argues=$("#comprehensiveloanForm").serializeArray();//表单数据
+ 	var param = {};
+    $.each(argues, function() {
+      param[this.name] = this.value;//将表单数据数组转为对象
+    });
+    param.isApplymortgage=isApplymortgage//将checkbox加入表单数据
+    param=JSON.stringify(param);
+    console.log(param)
+
+    $("#comprehensiveloanForm input[required]").each(function(){
+    	var _val=$(this).val();
+    	if( _val == ''){
+    		requiredFlag ++;
+    	}
+    })
+
+    if(requiredFlag > 0){ //必填项没有填写，则提示信息
+    	layer.msg('必填信息不能为空', {
+		     icon: 2,
+			 time: 2000 //2秒关闭（如果不配置，默认是3秒）
+		});
+		return
+    }
+    
+    jQuery.support.cors = true;    
+		//通过Ajax提交后台
+		  $.ajax({
+			 url:ajaxUrl,
+		     type:"POST",
+		     dataType:"json",
+		     timeout:"3000",
+		     async: "false",
+		     data:param,
+			 beforeSend: function(){			
+			 	$(".loadingWrapper").show()
+			  },
+			 complete : function(){		
+			 	$(".loadingWrapper").hide()
+			 },				    	 	  
+		   	success:function(result){
+		   				console.log("============"+result.statusCode+"=="+result.statuszh);	    	
+       			   if(result.statusCode == 1000){
+       				 	layer.msg(result.statuszh, {
+							 icon: 1,
+							time: 2000 //2秒关闭（如果不配置，默认是3秒）
+						});	     					
+       			  		window.history.go(-1);
+       			   }else{
+		       			layer.msg(result.statuszh, {
+							  icon: 2,
+							  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+						});		       				
+		      }          
+		     }
+		  });
+	}
+	
+	
+	
+</script>
+</html>

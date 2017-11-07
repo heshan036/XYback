@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-wealthManage.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<title>热销产品</title>
+</head>
+<body class="pt">
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>热销产品</h1>
+	</header>
+
+	<div class="hotproducts">
+		<ul class="tabT">
+			<li class="active">常规热销产品</li>
+			<li>私行产品</li>
+		</ul>
+		<div class="panels">
+			<div class="panel">
+				<section class="hotproduct">
+					<h3>兴业银行“天天万利宝”开放式人民币理财产品（夜市版56D）第7款</h3>
+					<div class="hotproIntro">
+						<div class="introLeft">
+							<p><b>期限：<span>1年</span></b><small>5万起购</small></p>
+							<div class="progress">
+								<progress max="100" value="50"></progress>
+								<small>50%</small>
+							</div>
+						</div>
+						<div class="introRight">
+							<p>参考净收益/净值</p>
+							<b>4.30%</b>
+						</div>
+					</div>
+				</section>
+				<section class="hotproduct">
+					<h3>兴业银行“天天万利宝”开放式人民币理财产品（夜市版56D）第7款</h3>
+					<div class="hotproIntro">
+						<div class="introLeft">
+							<p><b>期限：<span>1年</span></b><small>5万起购</small></p>
+							<div class="progress">
+								<progress max="100" value="50"></progress>
+								<small>50%</small>
+							</div>
+						</div>
+						<div class="introRight">
+							<p>参考净收益/净值</p>
+							<b>4.30%</b>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="panel none">
+				<section class="hotproduct">
+					<h3>兴业银行“天天万利宝”开放式人民币理财产品（夜市版56D）第7款</h3>
+					<div class="hotproIntro">
+						<div class="introLeft">
+							<p><b>期限：<span>1年</span></b><small>5万起购</small></p>
+							<div class="progress">
+								<progress max="100" value="50"></progress>
+								<small>50%</small>
+							</div>
+						</div>
+						<div class="introRight">
+							<p>参考净收益/净值</p>
+							<b>4.30%</b>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+
+</body>
+
+<script>
+	$(function(){
+		$(".hotproducts ul li").click(function(){
+			$(this).addClass("active").siblings().removeClass("active")
+			$(this).parents(".hotproducts").find(".panels > .panel:eq("+$(this).index()+")").show().siblings().hide()
+		})
+	})
+</script>
+
+</html>

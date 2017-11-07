@@ -1,0 +1,17 @@
+.houseList{width: 100%}
+.houseItem{display: block;position: relative;margin-top: 0.2667rem;background: #fff;}
+.houseItem figure{padding: 10px 0.4rem;display: flex;flex-direction: row;align-items: center;}
+.houseItem figure > img{width: 96px;height: 76px}
+.houseItem figcaption{margin-left: 10px;width: calc(100% - 106px - 0.8rem);width: -webkit-calc(100% - 106px - 0.8rem);width: -moz-calc(100% - 106px - 0.8rem);width: -o-calc(100% - 106px - 0.8rem);width: -ms-calc(100% - 106px - 0.8rem);overflow: hidden;}
+.houseItem figcaption h3, .houseItem figcaption p{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.houseItem figcaption h3{font-size: 0.44rem;color: #212121;margin-bottom: 5px}
+.houseItem figcaption p{margin-bottom: 5px;font-size: 0.36rem}
+.houseItem figcaption b{font-weight: normal;color: #333}
+.houseItem figcaption span{color: #666}
+.houseItem i.ico-arrow{position: absolute;right: 0;top:50%;transform: translateY(-50%);font-size: 1.28rem;color: #dcdcdc}
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/swiper-3.3.1.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-abroad.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+
+	<title>出国无忧</title>
+</head>
+<body class="pt">
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>出国无忧</h1>
+	</header>
+
+	<div class="finacial_banner">
+		<div class="swiper-container">
+		  <div class="swiper-wrapper">
+		   		<a class="swiper-slide"><img src="images/banner-abroad.png" alt="兴业银行长沙分行"></a>
+		  </div>
+		  <div class="swiper-pagination"></div>
+		</div>
+	</div>
+	
+	<section class="piclinkPart">
+		<h2><i class="icofont ico-liuxuekaoshi"></i>出国留学</h2>
+		<div class="piclink">
+			<div class="line2">
+				<div class="row2" style="margin-right:5px">
+					<a href="#" style="margin-bottom:5px"><img src="images/abroad-study.png" alt="留学准备"><span>留学准备</span></a>
+					<a href="#"><img src="images/abroad-life.png" alt="国外生活"><span>国外生活</span></a>
+				</div>
+				<div><a href="#"><img src="images/abroad-home.png" alt="学成归国"><span>学成归国</span></a></div>
+			</div>
+			<div class="line1"><a href="#"><img src="images/abroad-country.png" alt="留学国家"><span>留学国家</span></a></div>
+		</div>
+	</section>
+
+	<section class="piclinkPart">
+		<h2><i class="icofont ico-guojijipiao"></i>出国旅游</h2>
+		<div class="piclink">
+			<div class="line1"><a href="#"><img src="images/tour-country.png" alt="旅游国家"><span>旅游国家</span></a></div>
+			<div class="line2">
+				<div style="margin-right:5px"><a href="#"><img src="images/abroad-traval.png" alt="出行准备"><span>出行准备</span></a></div>
+				<div class="row2">
+					<a href="#" style="margin-bottom:5px"><img src="images/abroad-travalLife.png" alt="旅途生活"><span>旅途生活</span></a>
+					<a href="#"><img src="images/abroad-travalBack.png" alt="返回国内"><span>返回国内</span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="piclinkPart">
+		<h2><i class="icofont ico-kehu-copy"></i>移民国外</h2>
+		<div class="piclink">
+			<div class="line1"><a href="#"><img src="images/abroad-migrantContry.png" alt="移民国家"><span style="left:50%;bottom:50%;transform:translate(-50%,50%)">移民国家</span></a></div>
+			<div class="line1"><a href="#"><img src="images/abroad-migrant.png" alt="移民服务"><span style="left:50%;bottom:50%;transform:translate(-50%,50%)">移民服务</span></a></div>
+		</div>
+	</section>
+
+	<section class="piclinkPart abroad-financial">
+		<h2><i class="icofont ico-jinrong"></i>出国金融</h2>
+		<div class="list">
+			<a href="#"><span><i class="icofont ico-edit" style="color:#00abd8"></i></span><p>签证</p></a>
+			<a href="#"><span><i class="icofont ico-fangdai" style="color:#ff8400"></i></span><p>境外租房</p></a>
+			<a href="#"><span><i class="icofont ico-wifi" style="color:#f2572d"></i></span><p>境外WIFI</p></a>
+			<a href="#"><span><i class="icofont ico-baoxian" style="color:#32b16c;"></i></span><p>出境保险</p></a>
+		</div>
+	</section>
+
+</body>
+<script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
+<script>
+	var  banLen =$('.finacial_banner .swiper-container').find(".swiper-slide").length;
+    if(banLen > 1){
+        var mySwiper = new Swiper('.finacial_banner .swiper-container',{
+                pagination : '.swiper-pagination',
+            })
+    }
+
+</script>
+</html>

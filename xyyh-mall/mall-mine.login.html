@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-common.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<title>我的账号</title>
+</head>
+<body style="padding-top:0">
+	<div class="mall_login">
+		<div class="login_box">
+			<h1><img src="images/mall_logo.png" alt="兴业惠商城"></h1>
+			<form action="" class="login_form">
+				<p><label for=""><i class="icofont ico-shouji"></i></label><input type="text" placeholder="请输入手机号码" maxlength=11 id="numberbox"  oninput="checkMobile(this.value);" onpropertychange="checkMobile(this.value)"
+                onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" ></p>
+				<p><input type="text" id="numbercode"  placeholder="请输入验证码"><a class="btn_login btn_yzm" id="showcheckcode" >获取验证码</a></p>
+				<a  class="btn_login btn_loginblock" id="validatePhone" onclick="bindMobile()">登录</a>
+			</form>
+			<p id="showmsg" style="color: #ee4c33;position:absolute;top:100%;width:100%" class="tc mt10 none">请输入正确的验证码</p>
+		</div>
+	</div>
+
+	<footer class="mall_footer">
+		<a href="#"><i class="icofont ico-shouye"></i><p>活动</p></a>
+		<a href="#"><i class="icofont ico-sale"></i><p>商家</p></a>
+		<a href="#" class="active"><i class="icofont ico-yonghu"></i><p>我的账号</p></a>
+		<a href="#"><i class="icofont ico-xinyongqia"></i><p>我要办卡</p></a>
+		<a href="#"><i class="icofont ico-dianpu"></i><p>商户中心</p></a>
+	</footer>
+
+
+</body>
+<script>
+	$(function(){
+		$("body").width($(window).width());
+		$("body").height($(window).height())
+
+		// 底部样式变化
+		$(".mall_footer > a").each(function(){
+			if($(this).hasClass("active")){
+				var cls=$(this).find("i").attr("class");
+				$(this).find("i").attr("class",cls+"fill");
+			}
+		})
+
+	})
+
+	
+	function getCode(obj){
+		var count=60;
+		var countDown=setInterval(function(){
+				count--;
+				$(obj).html('<span style="font-size:12px">'+count+'</span><span style="font-size:12px">秒后重新获取</span>');
+				if(count == 0) { 
+					clearInterval(countDown)
+					$(obj).html("重新发送");
+					$(obj).attr("onclick","getCode(this);")//重新添加a标签中的onclick事件
+				}else{
+					$(obj).removeAttr('onclick');//去掉a标签中的onclick事件
+				}	
+			},1000)
+
+		var phone = $("#numberbox").val();
+
+			if(phone == ''){
+				return;
+			}
+			 //通过Ajax提交后台
+			  $.ajax({
+				 url:"<%=basePath%>/appFree/activity/getVerifyCode.do",
+			     type:"POST",
+			     dataType:"json",
+			     timeout:"1000",
+			     async: "true",
+			     data:	{ mobile :  phone},
+			     success:function(result){		    	
+			       			             
+			     }
+			  }); 
+	}
+
+	//绑定手机号
+	function bindMobile() {
+		var phone = $("#numberbox").val();
+		var verifyCode = $("#numbercode").val();
+		if(phone == ''){
+			$("#showmsg").show().text("请输入正确的手机号码");
+			return;
+		}
+		if(verifyCode ==''){
+			$("#showmsg").show().text("请输入正确的验证码");
+			return;
+		}
+		
+		 //通过Ajax提交后台
+		  $.ajax({
+			 url:"<%=basePath%>/appFree/activity/bindMobile.do",
+		     type:"POST",
+		     dataType:"json",
+		     timeout:"1000",
+		     async: "true",
+		     data:	{ mobile :  phone,
+		    		 verifyCode:verifyCode},
+		     success:function(result){		    	
+		       			   if(result.success){
+		       					$("#showmsgdiv").hide();
+		       					var goFlag = '<%=goFlag%>';
+		       					
+		       					if(goFlag == 1){
+		       						window.location.href="<%=basePath%>/appFree/activity/userInfo.do";
+		       					}else {
+		       						var flag = '${goFlag}';
+		       						if(flag == 2){
+		       							window.location.href="<%=basePath%>/appFree/activity/enroll.do?activityId=${activityId}&partId=${partId}&insuranceFlag=${insuranceFlag}";
+		       						}
+		       						
+		       					}
+		       					
+		       					
+		       			   }else{
+		       				$("#showmsg").show().text(result.msg);;
+		       			   }          
+		     }
+		  }); 
+		
+	} 
+	
+	
+	
+	function checkMobile(phone){		
+		if(!/^(13[0-9]|14[0-9]|17[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(phone)){
+			$("#showcheckcode").removeAttr('onclick');//去掉a标签中的onclick事件		
+		}else{	
+			$("#showcheckcode").attr("onclick","getCode(this);");//添加a标签中的onclick事件
+		}
+
+	}
+
+</script>
+</html>

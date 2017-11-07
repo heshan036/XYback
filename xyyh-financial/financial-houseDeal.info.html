@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/swiper-3.3.1.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-houseDeal.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<title>房产拍卖</title>
+</head>
+<body class="pt">
+	<!-- navbar -->
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>房产拍卖</h1>
+	</header>
+
+	<article class="content">
+		<header class="info_top info_topfixed">
+			<hgroup>
+				<h3>新城国际花都</h3>
+				<p>发布：<time>2017-01-01</time></p>
+			</hgroup>
+			<a onclick="pupshow();"><i class="icofont ico-yuyue1"></i><span>预约看房</span></a>
+		</header>
+		<div class="infotxtCon">
+			<p>按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷</p>
+		</div>
+	</article>
+	
+	<div class="pupbox_ct none" id="yuyueForm">
+		<form id="orderhouseFoem">
+			<ul>
+				<li>
+					<label>姓　　名：</label>
+					<input type="text" name="name" placeholder="请输入预约者姓名" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required>
+				</li>
+				<li>
+					<label>手机号码：</label>
+					<input type="text" name="mobile" placeholder="请输入预约者手机号码"  maxlength='11'  oninput="checkMobile(this.value);" onpropertychange="checkMobile(this.value)" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required>
+				</li>
+				<li>
+					<label>企业名称：</label>
+					<input type="text" name="businessName" placeholder="请输入预约者企业" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required>
+				</li>
+				<li>
+					<label>预约时间：</label>
+					<input type="text" name="scheduledTime" value="2017年  02 月  24 日" readonly>
+				</li>
+			</ul>
+		</form>
+	</div>
+
+	<div class="loadingWrapper none">
+		<div class="loadingBox">
+			<img src="images/timg.gif">
+			<p>提交中...</p>
+		</div>
+	</div>	
+
+</body>
+<script type="text/javascript" charset="utf-8" src="js/layer.js"></script>
+<script>
+	function pupshow(){
+		layer.open({
+				type:1,
+				title:false,
+				shadeClose: true, //点击遮罩关闭
+				content: $('#yuyueForm'),
+				btn:['确定','取消'],
+				yes:function(index,layero){
+					//按钮【确定】的回调
+
+				 	var ajaxUrl =  msUrl+ "/jinrong/bank.php/home/dreamcard/first_house_credit"; //接口地址
+
+				 	var requiredFlag = 0; //表单中必填项的未填写数
+
+				 	var argues=$("#orderhouseFoem").serializeArray();//表单数据
+				 	var param = {};
+				    $.each(argues, function() {
+				      param[this.name] = this.value;//将表单数据数组转为对象
+				    });
+				    param=JSON.stringify(param);
+				    console.log(param)
+
+				    $("#orderhouseFoem input[required]").each(function(){
+				    	var _val=$(this).val();
+				    	if( _val == ''){
+				    		requiredFlag ++;
+				    	}
+				    })
+
+				    if(requiredFlag > 0){ //必填项没有填写，则提示信息
+				    	layer.msg('必填信息不能为空', {
+						     icon: 2,
+							 time: 2000 //2秒关闭（如果不配置，默认是3秒）
+						});
+						return
+				    }
+				    
+				    jQuery.support.cors = true;    
+					//通过Ajax提交后台
+					  $.ajax({
+						 url:ajaxUrl,
+					     type:"POST",
+					     dataType:"json",
+					     timeout:"3000",
+					     async: "false",
+					     data:param,
+						 beforeSend: function(){			
+						 	$(".loadingWrapper").show()
+						  },
+						 complete : function(){	
+						 	$(".loadingWrapper").hide()
+						 },				    	 	  
+					   	success:function(result){
+					   				console.log("============"+result.statusCode+"=="+result.statuszh);	    	
+			       			   if(result.statusCode == 1000){
+			       				 	layer.msg(result.statuszh, {
+										  icon: 1,
+										  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+									});	     					
+			       			   	    layer.close(index)
+			       			   }else{
+					       			layer.msg(result.statuszh, {
+										  icon: 2,
+										  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+									});		       				
+					      }          
+					     }
+					  });
+				},
+				cancel:function(index,layero){
+					//按钮【取消】的回调
+					console.log("取消")
+				}
+			})
+	}
+</script>
+
+
+</html>

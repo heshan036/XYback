@@ -1,0 +1,21 @@
+/*广告图*/
+.mall_banner{height: 5.01rem;overflow: hidden;}
+.mall_banner img{width: 100%;height: 5.01rem}
+
+
+.card_hot{margin-top:0.4rem }
+.card_hot h2{color: #fff;background: #ff8400;height: 0.76rem;width:2.4rem;position: relative;font-size: 0.36rem;line-height: 0.76rem ;text-indent: 0.28rem}
+.card_hot h2:before{content: "";display: block;position: absolute;right: 0;border:0.38rem solid transparent;border-right-color: #f4f4f4;z-index: 1}
+.hot_lists{background: #fff;margin-top: 0.2667rem;padding-top:10px}
+.hot_lists a{display: inline-block;float: left;margin-right: 2%;margin-bottom: 10px}
+.hot_lists a img{width: 100%;height: 100%}
+.incl3 a{width: 32%;overflow: hidden;height: 3.333rem}
+.incl3 a:nth-child(3n){margin-right: 0}
+.incl2 a{width: 49%;overflow: hidden;height: 2.5067rem}
+.incl2 a:nth-child(2n){margin-right: 0}
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-mine.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<title>优惠券</title>
+</head>
+<body>
+	<header class="mall_header">
+		<a href="javascript:history.go(-1)" class="arrow_back"><i class="icofont ico-fanhui"></i></a>
+		<h1>优惠券</h1>
+	</header>
+
+	<ul class="yhq_tabT">
+		<li class="active">未使用</li>
+		<li>已使用</li>
+		<li>已过期</li>
+	</ul>
+
+	<div class="yhq_tabC">
+		<div class="panel">
+			<div class="pro_item">
+				<img src="images/pic.png">
+				<div class="pro_iteminfo">
+					<h3>浪漫风情餐厅</h3>
+					<p><b>验证码：1547：</b><span>2568</span></p>
+					<p><b>到期时间：</b><time>2017-02-15</time></p>
+					<h4>披萨系列5折</h4>
+				</div>
+			</div>
+			<div class="pro_item">
+				<img src="images/pic.png">
+				<div class="pro_iteminfo">
+					<h3>浪漫风情餐厅</h3>
+					<p><b>验证码：1547：</b><span>2568</span></p>
+					<p><b>到期时间：</b><time>2017-02-15</time></p>
+					<h4>披萨系列5折</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel none">
+			<div class="pro_item">
+				<img src="images/pic.png">
+				<div class="pro_iteminfo">
+					<h3>浪漫风情餐厅</h3>
+					<p><b>验证码：1547：</b><span>2568</span></p>
+					<p><b>到期时间：</b><time>2017-02-15</time></p>
+					<h4>披萨系列2折</h4>
+				</div>
+			</div>
+		</div>
+		<div class="panel none">
+			<div class="pro_item">
+				<img src="images/pic.png">
+				<div class="pro_iteminfo">
+					<h3>浪漫风情餐厅</h3>
+					<p><b>验证码：1547：</b><span>2568</span></p>
+					<p><b>到期时间：</b><time>2017-02-15</time></p>
+					<h4>披萨系列3折</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+<script>
+	$(function(){
+		$(".yhq_tabT li").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".yhq_tabC").find(".panel:eq("+$(this).index()+")").show().siblings().hide()
+		})
+	})
+</script>
+</html>

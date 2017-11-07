@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-joinUs.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+
+	<title>加入我们</title>
+</head>
+<body  class="pt">
+
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>房产拍卖</h1>
+	</header>
+
+	<header class="info_top">
+		<hgroup>
+			<h3>新城国际花都</h3>
+			<p>发布：<time>2017-01-01</time><a href="#">兴业银行长沙分行</a></p>
+		</hgroup>
+	</header>
+
+	<div class="infotxtCon">
+		<h3>招聘要求</h3>
+		<p>兴业银行长沙分行兴业银行长沙分行兴业银行长沙分行兴业银行长沙分行兴业银行长沙分行</p>
+		<img src="images/finacial-saving2.png" alt="">
+		<p>兴业银行长沙分行兴业银行长沙分行兴业银行长沙分行兴业银行长沙分行兴业银行长沙分行<img src="images/finacial-loan3.png" alt=""></p>
+	</div>
+
+	<a class="btn_block bradius-3" id="downLoad" href="images/finacial-saving2.png" download="简历模板.pdf"> 下载简历模板 </a>
+	<a class="btn_block bradius-3" id="upLoad"> 上传个人简历 </a>
+	
+	<form id="loadForm"  method="post" enctype="multipart/form-data" class="none">	
+		<input type="file" accept="application/msword,application/msword,application/pdf,application/vnd.ms-works,application/vnd.ms-excel" id="upload_input" name="uploadFile"> 
+	</form>
+</body>
+<script>
+	$(function(){
+		$("#upLoad").click(function(){
+			$("#upload_input").click()
+		})
+		$("#upload_input").change(function(e){
+         	var iMaxFilesize = 2097152; //2M 
+         	var Ofile=$(this)[0].files[0]
+         	var rFilter = /^(application\/msword|application\/msword|application\/pdf|application\/vnd.ms-works|application\/vnd.ms-excel)$/i; 
+			if (!rFilter.test(Ofile.type)) { 
+				alert("文件格式不正确"); 
+				return; 
+			} 
+			if (Ofile.size > iMaxFilesize) { 
+				alert("文件大小不能超过2M"); 
+				return; 
+			} 
+			$("#portraitform").submit(function(){
+				var filepath=$(this).val();
+				var formData = new FormData($("#loadForm")[0]);
+				$.ajax({
+					url:'',
+					type: 'POST',
+			        data: filepath,
+			        dataType: 'JSON',
+			        cache: false,
+			        processData: false,
+			        contentType: false,
+					success:function(result){
+						
+					},
+					error:function(msg) {
+						if(msg.status==errorInfo.timeout) {
+							alert(errorInfo.message);
+						}
+					}
+				});
+			});
+        }) 
+	})
+</script>
+</html>

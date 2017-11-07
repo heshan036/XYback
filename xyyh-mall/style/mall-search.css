@@ -1,0 +1,23 @@
+.search_header{
+    width: 100%;
+    height: 1.28rem;
+    line-height: 0;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #fff;
+}
+.search_header > a{flex: 1;overflow: hidden;height: 1.2rem;text-align: center;line-height: 1.2rem}
+.search_header > a i{font-size: 0.6rem;color: #0082ed}
+.search_header > .searchInput{flex:6.4;background: #eee;height:0.88rem;overflow:hidden;border-radius:0.5rem;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-o-box-sizing: border-box;-ms-box-sizing: border-box;
+	line-height: 1rem;position: relative;color: #666;padding: 0 0.4rem}
+.search_header > button{flex: 1;background: transparent;border: none;font-family: 'Microsoft YaHei', '微软雅黑',"Helvetica Neue",Helvetica;font-size: 0.4rem;height: 100%;color: #666;padding-right:0.21rem;}
+
+.search_sec{padding-top: 0.2667rem;background: #fff}
+.search_sec h2{color: #666;font-size: 12px;padding: 5px 0.4rem}
+.search_sec ul{padding: 10px 0.4rem 0;background: #fff}
+.search_sec li{background: #eee;color: #333;font-size: 0.32rem;height: 0.8rem;line-height: 0.8rem;padding: 0 0.2667rem;float: left;margin-right: 10px;margin-bottom: 10px}
+
+a.clear_btn{display: block;text-align: center;padding: 5px 0}
+

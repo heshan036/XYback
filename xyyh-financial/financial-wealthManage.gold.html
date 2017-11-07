@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-wealthManage.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<title>实物金</title>
+</head>
+<body class="pt">
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>实物金</h1>
+	</header>
+
+	<header class="search_header">
+		<a href="javascript:history.go(-1)">全部</a>
+		<div class="searchBox">
+			<input type="search" placeholder="搜索商家或关键词">
+			<a><i class="icofont ico-fangdajing"></i></a>
+		</div>
+	</header>
+
+	<div class="goldCon">
+		<figure class="goldItem" onclick="window.location.href='financial-wealthManage.goldInfo.html'">
+			<img src="images/pic.png" alt="">
+			<figcaption>
+				<b><small>￥</small>1280.00</b>
+				<h3>北京国宝黄金文化有限公司</h3>
+				<p>名称：上上大吉</p>
+				<p>重量：100克</p>
+			</figcaption>
+		</figure>
+		<figure class="goldItem" onclick="window.location.href='financial-wealthManage.goldInfo.html'">
+			<img src="images/pic.png" alt="">
+			<figcaption>
+				<b><small>￥</small>1280.00</b>
+				<h3>北京国宝黄金文化有限公司</h3>
+				<p>名称：上上大吉</p>
+				<p>重量：100克</p>
+			</figcaption>
+		</figure>
+		<figure class="goldItem" onclick="window.location.href='financial-wealthManage.goldInfo.html'">
+			<img src="images/pic.png" alt="">
+			<figcaption>
+				<b><small>￥</small>1280.00</b>
+				<h3>北京国宝黄金文化有限公司</h3>
+				<p>名称：上上大吉</p>
+				<p>重量：100克</p>
+			</figcaption>
+		</figure>
+		<figure class="goldItem" onclick="window.location.href='financial-wealthManage.goldInfo.html'">
+			<img src="images/pic.png" alt="">
+			<figcaption>
+				<b><small>￥</small>1280.00</b>
+				<h3>北京国宝黄金文化有限公司</h3>
+				<p>名称：上上大吉</p>
+				<p>重量：100克</p>
+			</figcaption>
+		</figure>
+		<figure class="goldItem" onclick="window.location.href='financial-wealthManage.goldInfo.html'">
+			<img src="images/pic.png" alt="">
+			<figcaption>
+				<b><small>￥</small>1280.00</b>
+				<h3>北京国宝黄金文化有限公司</h3>
+				<p>名称：上上大吉</p>
+				<p>重量：100克</p>
+			</figcaption>
+		</figure>
+		<figure class="goldItem" onclick="window.location.href='financial-wealthManage.goldInfo.html'">
+			<img src="images/pic.png" alt="">
+			<figcaption>
+				<b><small>￥</small>1280.00</b>
+				<h3>北京国宝黄金文化有限公司</h3>
+				<p>名称：上上大吉</p>
+				<p>重量：100克</p>
+			</figcaption>
+		</figure>
+	</div>
+
+	<p align="center" class="tc c-blue p10 none" id="loadMore"><img src="images/timg.gif"/></p>
+	
+</body>
+
+<script>
+var loadEnd;
+	//滑动到页面底部加载更多
+	$(window).scroll(function(){
+		var scrollTop = $(this).scrollTop();
+		var scrollHeight = $(document).height();
+		var windowHeight = $(this).height();
+		if ((scrollTop + windowHeight == scrollHeight)) {
+			// 此处是滚动条到底部时候触发的事件，在这里写要加载的数据，或者是拉动滚动条的操作
+			console.log(12)
+			$("#loadMore").show()
+		}
+	});
+	
+	$(function(){
+		$("#loadMore").click(function(){
+			if(!loadEnd){
+				$("#loadMore").show()
+			}
+		})
+	})
+</script>
+
+</html>

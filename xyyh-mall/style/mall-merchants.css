@@ -1,0 +1,54 @@
+.top_merchants{
+	height: 3rem;
+	position: relative;
+	padding: 0 0.4rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background: url(../images/mall_merchantsBg.png) no-repeat;
+	background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-ms-background-size: 100% 100%;
+}
+
+.merchants_portrait{width: 58px;height: 58px;border-radius: 50%;border:0.134rem solid rgba(255,255,255,0.24);max-width: 1}
+.top_merchants figcaption{margin-left: 10px;max-width: 4}
+.top_merchants figcaption h2{font-size: 0.44rem;color:#0e4b67;}
+.top_merchants figcaption h4{color: #28a2c6;margin-top: 5px;font-size: 0.24rem}
+.top_merchants figcaption a.saoma{position: absolute;right: 0.4rem;top: 0.64rem}
+.top_merchants figcaption a.saoma i{font-size: 0.64rem;color: #28a2c6}
+
+
+.merchants_yhq{height: 1rem;line-height: 1rem;display: flex;flex-direction: row;align-items: center;background: #fff;}
+.merchants_yhq > input{flex: 4;height: 1.0667rem;color: #666;font-size: 0.36rem;padding: 0 0.4rem}
+.merchants_yhq > a{flex: 1.4;background: #28a2c6;color: #fff;font-size: 0.4rem;text-align: center;height: 1rem}
+
+.searchBox{background: #fff;height:1rem;overflow:hidden;border-radius:0.5rem;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-o-box-sizing: border-box;-ms-box-sizing: border-box;
+line-height: 1rem;position: relative;margin:10px 0.8rem;}
+.searchBox a{padding: 0 15px 0 10px;position: absolute;right:0;top: 50%;transform: translateY(-50%);}
+.searchBox input{background: #fff;height: 1rem;line-height: 1rem;color: #666;margin-left: 15px;width: 100%}
+
+.merchants_yhqlist{width: 100%}
+.merchants_yhqlist > ul{display: flex;flex-direction: row;align-items: center;text-align: center;height:1.0333rem;line-height:1.0333rem;}
+.merchants_yhqlist > ul li{flex: 1}
+.merchants_yhqlist-th{position: relative;font-size: 0.36rem}
+.merchants_yhqlist-th li{background: #e2ecef;color: #333;border-right: 1px solid #f4f4f4}
+.merchants_yhqlist-th li:last-child{border-right: none}
+.merchants_yhqlist-tr{background: #eee}
+.merchants_yhqlist-tr li{font-size: 0.32rem}
+.merchants_yhqlist-tr:nth-child(2n){background: #fff}
+.chosetime{position: relative;}
+.chosetime input{position: absolute;width: 100%;height: 100%;z-index: 10;left: 0;top:0;opacity: 0}
+.chosetime b{font-weight: normal;}
+.chosetime span{display: inline-block;transform: rotate(90deg);margin-left: 5px}
+
+/*消费记录*/
+.history_list{margin-top: 0.2667rem}
+.history_list .pro_item {margin-bottom: 0.2667rem;}
+.history_list .pro_item > img{margin:10px 0 10px 0.4rem;}
+.history_list .pro_item > .pro_iteminfo{margin:10px;flex: 3}
+.history_list .pro_item > a{flex: 1;background: #e2ecef;height:104px;text-align: center;line-height: 104px}
+
+
+

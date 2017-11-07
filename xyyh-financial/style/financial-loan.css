@@ -1,0 +1,58 @@
+/*.loan_indexBox{width: 100%;height: 100%;background: url(../images/loanBg.png) center center no-repeat;overflow: hidden;background-size: 100% 100%;position: relative;}
+.loan_indexBox h1{text-align: center;padding-top: 46px;}
+.loan_indexBox h1 img{width: 60%}
+.loan_indexBox .btnGroup{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);z-index: 9;width: 100%;height: auto}
+.loan_indexBox .btnGroup a{height: 48px;width: 50%;background: url(../images/loan_btnBg.png) center center no-repeat;background-size: 100% 100%;color: #fff;text-align: center;display: block;margin: 0 auto;line-height: 48px;font-size: 20px;margin-bottom: 20px}
+.loan_indexBox .bottom{width: 100%;position: absolute;bottom: 0;left: 0;z-index: 1}
+.loan_indexBox .bottom img{width: 100%;display: block;}*/
+
+
+.loan_indexBox{margin-top: 0.2667rem;}
+.loan_indexBox h2{line-height: 36px;padding:0 0.4rem;color: #333;font-size: 0.4rem;}
+.loan_indexBox h2 i{color: #0082ed;margin-right: 5px;font-size: 0.54rem}
+
+
+.nav_item{height: 2.79rem;display: flex;flex-direction: row;align-items: center;padding: 0.4rem;background: #eee}
+.nav_item:nth-child(2n){background: #fff}
+.nav_item img{width: 2.6rem;max-height: 1.84rem;margin-left: 0.4rem}
+.nav_item figcaption{margin-left: 0.8rem;flex: 1}
+.nav_item h2{font-size: 0.54rem;color: #d3020c;}
+.nav_item h3{font-size: 0.4rem;}
+
+.content{width: 100%}
+.content h2{padding: 10px 0.4rem}
+/*消费贷款首页*/
+.consume_modelist{border-top: 1px solid #dcdcdc;display: flex;flex-direction: row;flex-wrap: wrap;background: #fff}
+.consume_modelist li{width: 50%;position: relative;padding: 0.4rem 0.2rem;border-bottom: 1px solid #dcdcdc;display: flex;flex-direction: row;}
+.consume_modelist li:nth-child(2n):before{content: "";display: block;height: 100%;width: 1px;background: #dcdcdc;top: 0;left:0;position: absolute;}
+.consume_modelist li:last-child{width: 100%}
+.consume_modelist li span{width:0.64rem;margin-right: 3px;text-align: center;overflow: hidden;}
+.consume_modelist li span i{font-size: 20px}
+.consume_modelist li hgroup{flex: 1}
+.consume_modelist li h3{color: #333;font-size: 0.4rem}
+.consume_modelist li h4{font-size: 0.32rem}
+
+
+
+/*初审额度*/
+.hcircle{margin: 30px 0.4rem;position: relative;height: 160px;text-align: center;position: relative;}
+.hcircle hgroup{position: absolute;top: 50%;left:50%;transform: translate(-50%,-50%);z-index: 10}
+.hcircle h2{color: #f16d15;font-size: 27px}
+.hcircle h4{font-size: 16px;color: #666}
+#amoutCircle{margin: auto;}
+.amounttxt{color: #a0a0a0;text-align: center;margin:0 0.4rem;}
+
+.formPart h2 {
+    padding: 10px 0.4rem;
+    color: #0082ed
+}
+
+
+
+.loanHouse-item{margin-top: 0.2667rem;width: 100%;overflow:hidden;background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#4ac0eb), to(#a3d9ed));background: -o-linear-gradient(left,#4ac0eb, #a3d9ed);background: -moz-linear-gradient(left, #4ac0eb, #a3d9ed);display: block; }
+.loanHouse-item figure{background: #fff;margin: 10px 0.4rem;display: flex;flex-direction: row;align-items: center;height: 98px;padding: 0 20px}
+.loanHouse-item figure > img{width: 96px;margin-right: 20px}
+.loanHouse-item figcaption{flex: 1;width: calc(100% - 156px);width: -webkit-calc(100% - 156px);width:-moz-calc(100% - 156px);width:-o-calc(100% - 156px);}
+.loanHouse-item h2{color: #333;font-size: 0.44rem}
+.loanHouse-item h2 i{color: #3aa6dc;font-size: 0.54rem;margin-right: 5px}
+.loanHouse-item figcaption span{background:#0082ed;color: #fff;font-size: 0.36rem;padding: 3px 10px;border-radius: 3px;display: inline-block;margin-top: 16px;float: right;}

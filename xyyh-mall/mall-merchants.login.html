@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-common.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<title>商户中心</title>
+</head>
+<body style="padding-top:0">
+	<div class="mall_login">
+		<div class="login_box">
+			<h1><img src="images/mall_logo.png" alt="兴业惠商城"></h1>
+			<form action="" class="login_form">
+				<p><label for=""><i class="icofont ico-people"></i></label><input type="text" placeholder="请输入商家用户名"></p>
+				<p><label for=""><i class="icofont ico-suo"></i></label><input type="text" placeholder="请输入密码"></p>
+				<a  class="btn_login btn_loginblock">登录</a>
+			</form>
+		</div>
+	</div>
+
+	<footer class="mall_footer">
+		<a href="#"><i class="icofont ico-shouye"></i><p>活动</p></a>
+		<a href="#"><i class="icofont ico-sale"></i><p>商家</p></a>
+		<a href="#"><i class="icofont ico-yonghu"></i><p>我的账号</p></a>
+		<a href="#"><i class="icofont ico-xinyongqia"></i><p>我要办卡</p></a>
+		<a href="#" class="active"><i class="icofont ico-dianpu"></i><p>商户中心</p></a>
+	</footer>
+
+
+</body>
+<script>
+	$(function(){
+		$("body").width($(window).width());
+		$("body").height($(window).height())
+
+		// 底部样式变化
+		$(".mall_footer > a").each(function(){
+			if($(this).hasClass("active")){
+				var cls=$(this).find("i").attr("class");
+				$(this).find("i").attr("class",cls+"fill");
+			}
+		})
+
+	})
+
+</script>
+</html>

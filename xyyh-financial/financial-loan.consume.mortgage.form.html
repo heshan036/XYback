@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/weui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/jquery-weui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-loan.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<title>按揭联动贷</title>
+</head>
+<body class="pt">
+	<!-- navbar -->
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>查看我的额度</h1>
+		<a class="pr home"  href="financial-index.html"><i class="icofont ico-homefill"></i></a>
+	</header>
+
+	<form action="" class="normalform">
+		<section class="formPart">
+			<h2>个人信息</h2>
+			<ul>
+				<li><label for="name">姓名</label><input name="name" id="name" type="text" placeholder="请输入姓名" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required></li>
+				<li><label for="mobile">手机号码</label><input name="mobile" id="mobile" type="tel" placeholder="请输入手机号码"  maxlength='11'  oninput="checkMobile(this.value);" onpropertychange="checkMobile(this.value)"   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required></li>
+				<li class="getCode"><label for="VerifyCode">验证码</label><input name="vertify_message" id="VerifyCode" type="number" placeholder="请输入验证码"><a class="getCode_btn" onclick="getCode(this);">获取验证码</a></li>
+			</ul>
+		</section>
+		<section class="formPart">
+			<h2>工作信息</h2>
+			<ul>
+				<li>
+					<label for="work_status">雇佣类型</label>
+					<input name="work_status" id="work_status" type="text" class="select" readonly value="劳动合同">
+				</li>
+				<li><label for="work_company">工作单位</label><input name="work_company" id="work_company" type="text" placeholder="请输入工作单位" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required></li>
+				<li>
+					<label for="work_address">工作所在城市</label>
+					<input type="text" name="work_address" id="work_address" value="湖南省 长沙市" readonly class="weui-input">
+				</li>
+				<li><label for="money_earn">税前月收入</label><input name="money_earn" id="money_earn" type="number" placeholder="请输入税前月收入" class="mr5" required>元</li>
+			</ul>
+		</section>
+		<section class="formPart">
+			<h2>本行按揭贷款信息</h2>
+			<ul>
+				<li><label for="ishouseMortage">是否在本行有住房贷款</label><input name="ishouseMortage" id="ishouseMortage" type="checkbox" value="2"><span class="checkswitch"></span></li>
+				<li><label for="mortageTime">贷款已还款期限</label><input name="mortageTime" id="mortageTime" type="number" placeholder="请输入数字" class="mr5" required>月</li>
+				<li><label for="mortagefreeTime">剩余贷款期限</label><input name="mortagefreeTime" id="mortagefreeTime" type="number" placeholder="请输入数字" class="mr5" required>月</li>
+			</ul>
+		</section>
+		<section class="formPart">
+			<h2>贷款信息</h2>
+			<ul>
+				<li><label for="applyCount">申请金额</label><input name="applyCount" id="applyCount" type="number" placeholder="请输入数字" class="mr5" required>元</li>
+				<li><label for="loanFunction">贷款用途</label><input name="loanFunction" id="loanFunction" type="text" placeholder="请输入贷款用途,如：购物" required></li>
+			</ul>
+		</section>
+		<!-- <ul>
+			<li>
+				<label for="certificate">证件类型</label>
+				<input name="certificate" id="certificate" type="text" class="select" readonly value="身份证">
+			</li>
+			<li><label for="website">选择网点</label><input name="website" id="website" type="number" class="select" required readonly></li>
+			<li><label for="idnum">证件号</label><input name="idnum" id="idnum" type="number" placeholder="输入证件号" required></li>
+			<li><label for="account">按揭还款账号后六位</label><input name="account" id="account" type="number" maxlength="6" placeholder="按揭还款账号后六位"></li>
+		</ul> -->
+		<a class="btn_block bradius-3"  onclick="javascript:submitInfo(this);">提交</a>
+	</form>
+
+	<div class="loadingWrapper none">
+		<div class="loadingBox">
+			<img src="images/timg.gif">
+			<p>提交中...</p>
+		</div>
+	</div>
+	
+
+</body>
+<script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/layer.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery-weui.min.js"></script>
+<script>
+
+    $("#work_status").picker({
+		  title: "请选择雇佣类型",
+		  cssClass:'normalPicker',
+		  cols: [
+		    {
+		      textAlign: 'center',
+		      value:"劳动合同",
+		      values: [ '临时工', '劳动合同', '非全日制用工']
+		    }
+		  ],
+		  onChange: function (picker, values, displayValues) {
+       		 //$("#work_status").val(displayValues);
+        }
+	});
+
+     function submitInfo(obj) {
+
+ 	var ajaxUrl =  msUrl+ "/jinrong/bank.php/home/dreamcard/first_house_credit"; 
+	var work_status = $("#work_status").val(); //证件类型	
+	if(idnum == '' || account==''){ //必填项没有填写，则提示信息
+	    	layer.msg('必填信息不能为空', {
+			     icon: 2,
+				 time: 2000 //2秒关闭（如果不配置，默认是3秒）
+			});
+			return
+	    }
+    
+    jQuery.support.cors = true;    
+		//通过Ajax提交后台
+		  $.ajax({
+			 url:ajaxUrl,
+		     type:"POST",
+		     dataType:"json",
+		     timeout:"3000",
+		     async: "false",
+		     data:{
+	     		certificate:certificate_type,
+			    idnum:idnum,
+			    account:account
+			   },
+			 beforeSend: function(){			
+			 	$(".loadingWrapper").show()
+			  },
+			 complete : function(){	
+			 	$(".loadingWrapper").hide()
+			 },				    	 	  
+		   	success:function(result){
+		   				console.log("============"+result.statusCode+"=="+result.statuszh);	    	
+       			   if(result.statusCode == 1000){
+       				 	layer.msg(result.statuszh, {
+								  icon: 1,
+								  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+									});	     					
+       			    window.location.href='financial-loan.consume.mortgage.seeamount.html';
+       			   }else{
+		       			layer.msg(result.statuszh, {
+							  icon: 2,
+							  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+						});		       				
+		      }          
+		     }
+		  });
+	}
+
+</script>
+</html>

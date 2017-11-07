@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/swiper-3.3.1.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-abroad.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+
+	<title>贵宾服务</title>
+	<style>
+		.piclink .line1 a:after{content: "";display: block;position: absolute;background: rgba(0,0,0,0.4);left: 0;top: 0;bottom: 0;right: 0;z-index: 0}
+		.piclink .line1.tc a span{z-index: 10}
+	</style>
+</head>
+<body class="pt">
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>贵宾服务</h1>
+	</header>
+
+	<div class="finacial_banner">
+		<div class="swiper-container">
+		  <div class="swiper-wrapper">
+		   		<a class="swiper-slide"><img src="images/banner-vip.png" alt="兴业银行长沙分行"></a>
+		  </div>
+		  <div class="swiper-pagination"></div>
+		</div>
+	</div>
+	
+	<section class="piclinkPart">
+		<h2><i class="icofont ico-vip"></i>贵宾服务</h2>
+		<div class="piclink">
+			<div class="line1 tc">
+				<a href="#"><img src="images/vip-medical.png" alt="通用版体检服务"><span>通用版体检服务</span></a>
+				<a href="#"><img src="images/vip-airport.png" alt="机场贵宾通道"><span>机场贵宾通道</span></a>
+				<a href="#"><img src="images/vip-hotel.png" alt="五星酒店畅享"><span>五星酒店畅享</span></a>
+				<a href="#"><img src="images/vip-golf.png" alt="高尔夫免费畅打"><span>高尔夫免费畅打</span></a>
+				<a href="#"><img src="images/vip-shops.png" alt="特惠商户权益"><span>特惠商户权益</span></a>
+				<a href="#"><img src="images/vip-park.png" alt="机场１元停车"><span>机场１元停车</span></a>
+				<a href="#"><img src="images/vip-wifi.png" alt="境外WIFI服务"><span>境外WIFI服务</span></a>
+			</div>
+		</div>
+	</section>
+
+</body>
+<script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
+<script>
+	var  banLen =$('.finacial_banner .swiper-container').find(".swiper-slide").length;
+    if(banLen > 1){
+        var mySwiper = new Swiper('.finacial_banner .swiper-container',{
+                pagination : '.swiper-pagination',
+            })
+    }
+
+</script>
+</html>

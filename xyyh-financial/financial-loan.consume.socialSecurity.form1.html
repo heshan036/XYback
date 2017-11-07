@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/weui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/jquery-weui.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-loan.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<title>社保贷</title>
+	<style>
+		.noteBox{margin: 10px 0.4rem;font-size: 0.32rem;line-height: 1.8}
+		.noteBox ul{color: #666}
+		.noteBox li{list-style: decimal;list-style-position: inside;}
+	</style>
+</head>
+<body class="pt">
+	<!-- navbar -->
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>查看我的额度</h1>
+		<a class="pr home"  href="financial-index.html"><i class="icofont ico-homefill"></i></a>
+	</header>
+
+	<form action="" class="normalform">
+		<ul>
+			<li><label for="name">姓名</label><input name="name" id="name" type="number" placeholder="输入姓名" required></li>
+			<li><label for="idnum">身份证号</label><input name="idnum" id="idnum" type="number" placeholder="输入证件号" required></li>
+			<li><label for="password">密码</label><input name="password" id="password" type="number" placeholder="输入密码" required></li>
+			<li><label for="mobile">手机号码</label><input name="mobile" id="mobile" type="tel" placeholder="请输入手机号码"  maxlength='11'  oninput="checkMobile(this.value);" onpropertychange="checkMobile(this.value)"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required></li>
+				<li class="getCode"><label for="VerifyCode">验证码</label><input name="vertify_message" id="VerifyCode" type="number" placeholder="请输入验证码"><a class="getCode_btn" onclick="getCode(this);">获取验证码</a></li>
+			<li>
+				<label for="business_status">行业</label>
+				<input name="business_status" id="business_status" type="text" class="select" readonly value="行业">
+			</li>
+			<li><label for="website">选择网点</label><input name="website" id="website" type="number" class="select" required readonly></li>
+		</ul>
+		<section class="formPart">
+			<h2 style="color:#666"><input type="checkbox" class="checkVisible mr5" id="promisterm" checked><label for="promisterm">我同意</label><a  onclick="pupService();" class="c-blue">服务条款</a></h2>
+		</section>
+		<a class="btn_block bradius-3"  onclick="javascript:submitInfo(this);">提交</a>
+<!-- 		<a href="" class="btn_block bradius-3 btn-gray">取消</a> -->
+	</form>
+
+	<div class="loadingWrapper none">
+		<div class="loadingBox">
+			<img src="images/timg.gif">
+			<p>提交中...</p>
+		</div>
+	</div>
+
+	<section style="margin:10px 0.4rem" class="noteBox">
+		<h2>温馨文字：</h2>
+		<ul>
+			<li>我们不会保留你的账号和密码。</li>
+			<li>初始查询密码为身份证后六位。</li>
+			<li>登录设置密码时需输入准确的身份证号码和姓名信息，否则无法设置密码并查询相关帐户信息。</li>
+			<li>长沙市社保暂不支持。</li>
+		</ul>
+	</section>
+
+</body>
+<script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/layer.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/city-picker.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery-weui.min.js"></script>
+<script>
+    $("#certificate").picker({
+		  title: "请选择证件类型",
+		  cssClass:'normalPicker',
+		  cols: [
+		    {
+		      textAlign: 'center',
+		      value:"身份证",
+		      values: ['护照', '港澳通行证', '身份证', '军人证', '签证']
+		    }
+		  ],
+        onChange: function (picker, values, displayValues) {
+          console.log(values, displayValues);
+        }
+	});
+
+	$("#business_status").picker({
+		  title: "请选择行业",
+		  cssClass:'normalPicker',
+		  cols: [
+		    {
+		      textAlign: 'center',
+		      value:"邮政业",
+		      values: [ '农林牧渔业', '工业', '建筑业','地质勘查及水利业','交通运输','仓储业','邮政业','信息传输业','贸易业','住宿餐饮业','金融业','房地产业']
+		    }
+		  ],
+        onChange: function (picker, values, displayValues) {
+          console.log(values, displayValues);
+        }
+	});
+
+		function pupService(){
+		//弹出即全屏
+		var index = layer.open({
+		  type: 2,
+		  title:'服务条款',
+		  content: 'financial-serviceterm.html',
+		  area: 'auto',
+		  id:'servicePup'
+		});
+	}
+
+
+     function submitInfo(obj) {
+     	if(!$("#promisterm").is(":checked")){
+     		layer.msg('请同意服务条款', {
+			     icon: 7,
+				 time: 2000 //2秒关闭（如果不配置，默认是3秒）
+			});
+     		return
+     	}
+	 	var ajaxUrl =  msUrl+ "/jinrong/bank.php/home/dreamcard/first_house_credit"; //接口地址
+
+		var requiredFlag = 0; //表单中必填项的未填写数
+		var isformalEmployee = $("#isformalEmployee").val();//是否能提供房产抵押	isformalEmployee
+		var ispayOldinsurance = $("#ispayOldinsurance").val();//是否能提供房产抵押	ispayOldinsurance
+
+	 	var argues=$("#socialSecurityForm").serializeArray();//表单数据
+	 	var param = {};
+	    $.each(argues, function() {
+	      param[this.name] = this.value;//将表单数据数组转为对象
+	    });
+	    param.isformalEmployee=isformalEmployee//将checkbox加入表单数据
+	    param.ispayOldinsurance=ispayOldinsurance//将checkbox加入表单数据
+	    param=JSON.stringify(param);
+	    console.log(param)
+
+	    $("#socialSecurityForm input[required]").each(function(){
+	    	var _val=$(this).val();
+	    	if( _val == ''){
+	    		requiredFlag ++;
+	    	}
+	    })
+
+	    if(requiredFlag > 0){ //必填项没有填写，则提示信息
+	    	layer.msg('必填信息不能为空', {
+			     icon: 2,
+				 time: 2000 //2秒关闭（如果不配置，默认是3秒）
+			});
+			return
+	    }
+	    
+	    jQuery.support.cors = true;    
+		//通过Ajax提交后台
+		  $.ajax({
+			 url:ajaxUrl,
+		     type:"POST",
+		     dataType:"json",
+		     timeout:"3000",
+		     async: "false",
+		     data:param,
+			 beforeSend: function(){			
+			 	$(".loadingWrapper").show()
+			  },
+			 complete : function(){	
+			 	$(".loadingWrapper").hide()
+			 },				    	 	  
+		   	success:function(result){
+		   				console.log("============"+result.statusCode+"=="+result.statuszh);	    	
+       			   if(result.statusCode == 1000){
+       				 	layer.msg(result.statuszh, {
+								  icon: 1,
+								  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+									});	     					
+       			   		window.location.href='financial-loan.consume.mortgage.noApply.html';
+       			   }else{
+		       			layer.msg(result.statuszh, {
+							  icon: 2,
+							  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+						});		       				
+		      }          
+		     }
+		  });
+	}
+</script>
+</html>

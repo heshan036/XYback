@@ -1,0 +1,138 @@
+.nav_item{height: 2.79rem;display: flex;flex-direction: row;align-items: center;padding: 0.4rem;background: #f2f6f7}
+.nav_item:nth-child(2n){background: #fff}
+.nav_item img{width: 2.6rem;max-height: 1.84rem;margin-left: 0.4rem}
+.nav_item figcaption{margin-left: 0.8rem;flex: 1}
+.nav_item h2{font-size: 0.54rem;color: #d3020c;}
+.nav_item h3{font-size: 0.4rem;}
+
+/*安愉储蓄*/
+.wealthManage-main{margin: 0.8rem 0.8rem 0;text-align: center;}
+.wealthManage-sec{padding: 0.8rem 0.6rem 0}
+.wealthManage-sec img{height: 3.2rem}
+
+/*客户经理*/
+.managerTop{background: #fff;padding: 10px 0.4rem;display: flex;flex-direction: row;align-items: center;position: relative;}
+.managerTop > img{width: 64px;height: 64px;}
+.managerTop > figcaption{margin-left: 10px;flex: 1}
+.managerTop h2{font-size: 0.44rem;margin-bottom:5px;color: #333}
+.managerTop p i{font-size: 0.36rem;color: #ee4c33;margin-right: 5px}
+.managerslist{background: #fff;}
+.managerItem{border-bottom: 1px solid #e5e5e5;padding: 10px 0.4rem;display: flex;flex-direction: row;justify-content: space-between;align-items: center;position: relative;}
+.managerslist .managerItem:last-child{border-bottom: none}
+.managerItem h2{flex: 1}
+.managerItem h2 b{font-weight: normal;font-size: 0.44rem;color: #333;display: block;}
+.managerItem h2 small{font-size:12px;}
+.managerItem .managerAdr{flex: 1;text-align: right;}
+.managerItem .managerAdr p{color: #a0a0a0}
+.managerItem > a,.managerTop > a{width: 100%;height: 100%;position: absolute;left: 0;top: 0;}
+
+.filtrate-wrapper{position: relative;margin-top: 0.2667rem;width: 100%;z-index: 10;}
+.filtrate{background: #fff;border-bottom: 1px solid #dcdcdc;display: flex;flex-direction: row;align-items: center;justify-content: space-between;height: 1.0133rem;line-height: 1.0133rem}
+.filtrate li{text-align: center;flex: 1;color: #333;font-size: 0.32rem}
+.filtrate i{transform:rotate(90deg);display: inline-block;font-size: 14px;margin-left: 3px}
+.filtrate-wrapper .pup-wrapper{position: fixed;left:0;top: 2.56rem;right: 0;bottom: 0;z-index: 98;}
+.filtrate-wrapper .pup-box{position: absolute;top: 0;left:0;right: 0;height: auto;text-align: left;z-index: 10}
+.filtrate-wrapper .pup-box > a{display: block;height: 1.0133rem;line-height: 1.0133rem;color: #333;background: #eee;padding: 0 1rem;position: relative;z-index: 100}
+.filtrate-wrapper .pup-box > a:nth-child(2n){background: #fff;}
+.filtrate-wrapper .pup-box > a.active , .filtrate li.active,.filtrate li.active i{color: #0082ed}
+.filtrate-wrapper .pup-box > a.active:before{content: "";display: block;z-index: 99;height:1.0133rem;width: 2px;background: #0082ed;left:0;position: absolute; }
+.filtrate-wrapper .pupBg{position: absolute;top: 0;left:0;right: 0;bottom:0;background: rgba(0,0,0,0.6);z-index: 1}
+
+.mutiSelect{position: fixed;bottom: 0;top: 1.17333rem;left: 0;right: 0;z-index: 98;background: #f4f4f4;display: flex;flex-direction: row;justify-content: space-between;}
+.mutiSelect > *{background: #fff;overflow: scroll;}
+.mutiSelect .branchBank{flex: 1;border-right: 1px solid #e5e5e5}
+/*.mutiSelect .branchBank li h2{padding: 14px 16px;font-size: 18px;position: relative;}
+.mutiSelect .branchBank li.active h2{padding-left: 24px}
+.mutiSelect .branchBank li.active h2:before{content: '';display:block;top:18px;bottom: 18px;left:16px;width: 2px;background:#0082ed;position: absolute;}*/
+.mutiSelect  .subBank li{border-bottom:1px solid #e5e5e5;padding: 10px 16px;font-size: 14px}
+.mutiSelect  .subBank li.active,.mutiSelect .branchBank li.active h2,.mutiSelect .area li.active{color: #0082ed;}
+.mutiSelect  .subBank{flex: 1.3}
+.mutiSelect .area{background: #f3f4f5}
+.mutiSelect .area li{padding: 10px 16px;text-align: right;font-size: 16px}
+.branchBank .twoColumn{width: 50%;float: left;}
+.branchBank h2{font-size: 15px;position: relative;width: 80%;margin: 8px auto;text-align: center;line-height: 2;border:1px solid #dcdcdc;}
+.branchBank li.active h2{border:1px solid #0082ed;}}
+
+
+/*热销产品*/
+.hotproduct{background: #fff;margin-top:0.2667rem; }
+.hotproduct h3{padding: 7px 0.4rem;display: -webkit-box;text-overflow: ellipsis;overflow: hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size: 0.4rem;color: #333;border-bottom: 1px solid #e5e5e5}
+.hotproduct .hotproIntro{display: flex;flex-direction: row;padding: 7px 0.4rem;font-size: 0.36rem}
+.hotproduct .hotproIntro b{font-weight: normal;}
+.hotproduct .hotproIntro small{margin-left: 20px}
+.hotproduct .progress small{color: #a0a0a0;margin-left: 5px}
+.hotproduct .introLeft{flex: 3;margin-right:0.4rem;}
+.hotproduct progress{border-color:transparent;height: 12px;width: 2.88rem;background: #c9c9c9;border-radius: 6px;}
+.hotproduct progress::-moz-progress-bar{ background: #c9c9c9; border-radius: 6px;}   
+.hotproduct progress::-webkit-progress-bar{ background: #c9c9c9; border-radius: 6px;}   
+.hotproduct progress::-webkit-progress-value { background: #ee4c33;border-radius: 6px; }  
+.hotproduct .introRight{flex: 1.6;text-align: center;}
+.hotproduct .introRight p{font-size: 0.24rem}
+.hotproduct .introRight b{color: #ee4c33;font-size: 0.48rem}
+
+/*实物金*/
+.search_header > a{flex: 1;overflow: hidden;height: 1.2rem;text-align: center;line-height: 1.2rem;color: #0082ed;font-size: 0.36rem;}
+.search_header .searchBox{
+	flex: 5;
+	background: #fff;
+	margin-right: 0.4rem;
+	border-radius:0.5rem;
+	height:0.88rem;
+	overflow: hidden;
+	position: relative;
+}
+.search_header .searchBox input{
+	height: 100%;
+	line-height: 0.88rem;
+	color: #666;
+	padding:0 48px 0 16px;
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+}
+.search_header .searchBox a{position: absolute;right: 0;top: 0;height: 0.88rem;line-height: 0.88rem;width: 48px;text-align: center;}
+.goldCon{margin-top:0.28rem;padding: 0 0.2rem;display: flex;flex-direction: row;flex-wrap: wrap;justify-content: space-between;}
+.goldItem{width: 49%;background: #fff;margin-bottom: 0.2667rem}
+.goldItem img{width: 100%;height: 4rem}
+.goldItem figcaption{margin:0 0.1334rem 10px;line-height: 1.5}
+.goldItem b{color: #ee4c33;font-size: 0.44rem;font-weight: normal;}
+.goldItem h3{color: #333;font-size: 0.36rem;display: -webkit-box;text-overflow: ellipsis;overflow: hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+.goldItem p{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.goldInfo_content{background: #fff;position: relative; }
+.goldInfo_content h2{font-size: 0.44rem;color: #212121;border-bottom: 1px solid #e5e5e5;padding: 10px 0.4rem;position: relative;}
+.goldInfo_content h2 b{position: absolute;right: 0.4rem;top: 50%;transform: translateY(-50%);color: #ee4c33;font-weight: normal;font-size: 0.4rem}
+.goldInfo_content .procon{padding: 10px 0.4rem;overflow: hidden;}
+.goldInfo_content .procon p{margin-bottom: 10px;}
+.goldInfo_content .procon img{width:100%;}
+
+/*在线购买*/
+.buyOnline_classify{display: flex;flex-direction: row;flex-wrap: wrap;background: #fff;margin-bottom: 0.2667rem}
+.buyOnline_classify a{width: 33.1%;border-right:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;height: 3.3rem;position: relative;text-align: center;}
+.buyOnline_classify a p {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+}
+.buyOnline_classify a span{display: block;height: 1.28rem; line-height: 1.28rem;}
+.buyOnline_classify a i{font-size: 0.84rem}
+.buyOnline_classify a b{color: #212121;font-size: 0.42rem;font-weight: normal;}
+.buyOnline_classify a:nth-child(3n){border-right: none}
+.buyHot{background: #fff;}
+.buyHot-item{border-bottom:1px solid #dcdcdc;position: relative;padding:0 0.4rem;}
+.buyHot-item h3{position: relative;color: #333;font-size: 0.36rem;padding:10px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.buyHot-item h3:before{content: '';display: block;width: 2px;height: 50%;position: absolute;left: 0;top: 25%;background: #0082ed}
+.buyHot-itemCon{display: flex;flex-direction: row;align-items: center;padding-bottom:10px;position: relative;text-align: center;font-size: 14px}
+.buyHot-itemCon .emphasize{flex: 0.6;padding-right: 10px}
+.buyHot-itemCon b{display: block;font-size: 0.54rem;color: #0082ed;font-weight: normal;}
+.buyHot-itemCon small{color: #a0a0a0;font-size: 12px}
+.buyHot-itemCon .notes{text-align: left;flex: 1;border-left:1px solid #e5e5e5;padding:0 10px;font-size: 12px}
+.buyHot-itemCon .notes li{overflow: hidden;white-space: nowrap;max-width: 3rem}
+.buyHot-itemCon a.buy_btn{background: #0082ed;border-radius: 3px;width:1.92rem;display: inline-block;height: 32px;line-height: 32px;color: #fff;position: absolute;right: 0;bottom:10px;}
+
+
+

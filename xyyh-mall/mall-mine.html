@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-mine.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<title>我的账号</title>
+</head>
+<body class="pb" style="padding-top: 0">
+<!-- 	<header class="mall_header">
+		<a href="javascript:history.go(-1)" class="arrow_back"><i class="icofont ico-fanhui"></i></a>
+		<h1>我的账号</h1>
+	</header> -->
+	<!-- 个人信息区 -->
+	<figure class="top_person">
+		<a href="mall-mine.info.html"><img src="images/pic.png" class="mine_portrait"></a>
+		<figcaption>
+			<h2>任嘉伦Alen</h2>
+			<h4><i class="icofont ico-shouji"></i>156****1532</h4>
+		</figcaption>
+	</figure>
+	
+	<section class="mine-yhq">
+		<h2><i class="icofont ico-youhuiquan1"></i>我的优惠券</h2>
+		<div class="yhq-con">
+			<a href="mall-mine.yhq.html"><i class="icofont ico-youhuiquan3" style="color:#55a9e3"></i><p>未使用</p></a>
+			<a href="mall-mine.yhq.html"><i class="icofont ico-quanshiyong" style="color:#ef9428"></i><p>已使用</p></a>
+			<a href="mall-mine.yhq.html"><i class="icofont ico-quanlishi" style="color:#a0a0a0"></i><p>已过期</p></a>
+		</div>
+	</section>
+
+	<div class="mine-link">
+		<a href="mall-mine.history.html"><i class="icofont ico-gouwudai1" style="color:#8ec31f"></i><span>我的消费记录</span></a>
+		<a href="mall-mine.collect.html"><i class="icofont ico-star" style="color:#f85959;font-size:0.46rem;vertical-align: bottom"></i><span>我的收藏</span></a>
+	</div>
+
+	<div class="mine-link">
+		<a href="mall-mine.feedback.html"><i class="icofont ico-yijianfankui" style="color:#95c07d;font-size:0.4rem;text-indent: -2px;"></i><span>意见反馈</span></a>
+		<a href="mall-mine.msg.html"><i class="icofont ico-xiaoxi1" style="color:#ff8200;font-size:0.58rem"></i><span>消息通知</span></a>
+	</div>
+
+	<div class="mine-link">
+		<a href="#"><i class="icofont ico-saoyisao" style="color:#55a9e3"></i><span>扫一扫</span></a>
+	</div>
+
+	<footer class="mall_footer">
+		<a href="mall-index.html"><i class="icofont ico-shouye"></i><p>活动</p></a>
+		<a href="mall-shop.html"><i class="icofont ico-sale"></i><p>商家</p></a>
+		<a href="mall-mine.html" class="active"><i class="icofont ico-yonghu"></i><p>我的账号</p></a>
+		<a href="mall-card.html"><i class="icofont ico-xinyongqia"></i><p>我要办卡</p></a>
+	</footer>
+
+
+</body>
+<script>
+	$(function(){
+
+		// 底部样式变化
+		$(".mall_footer > a").each(function(){
+			if($(this).hasClass("active")){
+				var cls=$(this).find("i").attr("class");
+				$(this).find("i").attr("class",cls+"fill");
+			}
+		})
+
+	})
+
+</script>
+</html>

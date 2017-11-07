@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/DateTimePicker.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-merchants.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<title>商户中心</title>
+</head>
+<body class="pb">
+<!-- 	<header class="mall_header">
+		<a href="javascript:history.go(-1)" class="arrow_back"><i class="icofont ico-fanhui"></i></a>
+		<h1>商户中心</h1>
+	</header> -->
+	<!-- 商铺信息区 -->
+	<figure class="top_merchants">
+		<img src="images/pic.png" class="merchants_portrait">
+		<figcaption>
+			<h2>任嘉伦Alen</h2>
+			<h4><i class="icofont ico-shouji"></i>156****1532</h4>
+			<a class="saoma"><i class="icofont ico-saoyisao"></i></a>
+		</figcaption>
+	</figure>
+
+	<div class="merchants_yhq">
+		<input type="text" placeholder="请输入优惠券验证码">
+		<a>添加</a>
+	</div>
+
+	<div class="searchBox">
+		<input type="text" placeholder="搜索验证码关键词">
+		<a><i class="icofont ico-fangdajing"></i></a>
+	</div>
+
+	<div class="merchants_yhqlist">
+		<ul class="merchants_yhqlist-th">
+			<li>验证码</li>
+			<li class="chosetime"><input type="text" data-field="date" readonly value="全部时间" id="chosetime-input"><b id="chosetime-text"></b><span><i class="icofont ico-arrow"></i></span></li>
+		</ul>
+		<ul class="merchants_yhqlist-tr">
+			<li>2056</li>
+			<li>2017-01-01</li>
+		</ul>
+		<ul class="merchants_yhqlist-tr">
+			<li>2056</li>
+			<li>2017-01-02</li>
+		</ul>
+	</div>
+	
+
+	<footer class="mall_footer">
+		<a href="mall-index.html"><i class="icofont ico-shouye"></i><p>活动</p></a>
+		<a href="mall-shop.html"><i class="icofont ico-sale"></i><p>商家</p></a>
+		<a href="mall-mine.html"><i class="icofont ico-yonghu"></i><p>我的账号</p></a>
+		<a href="mall-card.html"><i class="icofont ico-xinyongqia"></i><p>我要办卡</p></a>
+	</footer>
+
+<div id="dtBox"></div>
+</body>
+<script type="text/javascript" charset="utf-8" src="js/DateTimePicker.js"></script>
+<script type="text/javascript" src="js/DateTimePicker-i18n.js"></script>
+<script>
+	$(function(){
+		$("#chosetime-text").text($("#chosetime-input").val());
+		$("#dtBox").DateTimePicker({
+			//language:'zh-CN',
+			Element: "#chosetime-input",
+			monthYearSeparator: "-",
+			dateFormat: "MM-yyyy",
+			//defaultDate: new Date()
+		});
+		$("#chosetime-input").change(function(){
+			if($(this).val().length == 0){
+				$(this).val("全部时间")
+			}
+			$("#chosetime-text").text($("#chosetime-input").val());
+		})
+
+		
+		$(".mall_footer > a").each(function(){
+			if($(this).hasClass("active")){
+				var cls=$(this).find("i").attr("class");
+				$(this).find("i").attr("class",cls+"fill");
+			}
+		})
+
+	})
+
+</script>
+</html>

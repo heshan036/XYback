@@ -1,0 +1,181 @@
+@import url(iconfont.css);
+@import url(layer.css);
+body{background: #f4f4f4;font-family:'Microsoft YaHei', '微软雅黑';}
+#loadMore img{height: 40px}
+.pt{padding-top:1.17333rem;}
+
+
+
+.top_header{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1.17333rem;
+    line-height: 1.17333rem;
+    z-index: 99;
+    background-color: #0082ed;
+}
+.top_header h1{text-align: center;
+    font-size: 0.4533rem;
+    color: #fff;
+}
+.top_header h1 img{height:.6rem;vertical-align: middle;}
+.top_header a{position: absolute;color: #fff;display: block;width: 1.2rem;height: 1.2rem;text-align: center;top:0;}
+.top_header .home i{font-size: 0.64rem;vertical-align: middle;}
+.top_header .home img{width: 24px;height: 24px;vertical-align: middle;}
+.top_header .top_hrignt{right:0 }
+.topback{display: inline-block;transform: rotate(180deg);}
+.topback i{font-size: 0.64rem}
+
+.search_header{
+    width: 100%;
+    height: 1.28rem;
+    line-height: 0;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #fff;
+}
+.search_header .searchBox input{background: #eee}
+
+/*详情页面标题悬浮*/
+.info_top{background: #fff;padding: 10px 0.4rem;display: flex;flex-direction: row;justify-content: space-between;align-items: center;border-bottom: 1px solid #dcdcdc;z-index: 10}
+.info_top hgroup{flex: 2;margin-right: 10px}
+.info_top h3{color: #212121;font-size: 0.4rem}
+.info_top p{color: #a0a0a0;font-size: 12px}
+.info_top p > a{margin-left: 10px;color: #539bb6}
+.info_top > a{flex: 1;color: #0082ed;text-align: right;height: 100%}
+.info_top > a i{margin-right: 5px;vertical-align: middle;}
+
+.info_topfixed{position: fixed;left:0;right: 0;}
+
+/*详情页面内容*/
+.info_topfixed + .infotxtCon{padding-top: 70px}
+.infotxtCon{padding:10px 0.4rem;line-height: 1.5}
+.infotxtCon h3{font-size: 0.36rem;color: #333;margin: 5px 0;position: relative;text-indent: 10px}
+.infotxtCon h3:before{content: '';left: 0;top: 10%;width: 2px;height: 80%;position: absolute;display: block;background: #0082ed}
+.infotxtCon > img{width: 100%;margin: 8px auto}
+.infotxtCon p img{max-width: 100%;margin: 8px auto;display: block;}
+
+/*广告图*/
+.finacial_banner{height: 3.82rem;}
+.finacial_banner .swiper-container{width: 100%;height: 3.82rem; margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;}
+.finacial_banner  .swiper-slide{position: relative}
+.finacial_banner img{width: 100%;height: 100%;display: block;}
+.finacial_banner .swiper-wrapper{height: 100%}
+
+.finacial_banner .swiper-container-horizontal>.swiper-pagination-bullets{position: absolute;bottom: 0.18rem;left: 50%;transform: translateX(-50%);z-index: 101;}
+.finacial_banner .swiper-container-horizontal>.swiper-pagination-bullets span{width: 7px;height: 7px;border-radius: 50%;margin:0 5px;background: #666666;}
+.finacial_banner .swiper-container-horizontal>.swiper-pagination-bullets span.swiper-pagination-bullet-active{background: #3b76d8}
+
+.finacial_infoBanner , .finacial_infoBanner .swiper-container{height:5.4rem; }
+
+
+.borderBox{box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-o-box-sizing: border-box;-ms-box-sizing: border-box;}
+ select{padding-right:0.8rem;background:#eee url(../images/down.png) 95% center no-repeat;background-size: 10px 6px;}
+ .flexBox{display: flex;flex-direction: row;align-items: center;}
+
+
+
+/*弹窗*/
+.pup{position: fixed;left:0;top: 0;right: 0;bottom: 0;z-index: 98;display: none;}
+.pup_bg{background: rgba(0,0,0,0.6);position: absolute;left:0;top: 0;right: 0;bottom: 0;z-index: -1}
+.pupbox_lf{background: #fff;top: 1.2rem;bottom: 0;width: 40%;position: absolute;right:0;}
+.pup-close{position: absolute;top:0;right: 0.1333rem;z-index: 10}
+.pup-close i{font-size: 0.54rem}
+.pupbox_ct{background: #fff;width: 8rem}
+.pupbox_ct form{margin:0.8rem;}
+.pupbox_ct form li{margin-bottom: 0.4rem}
+.pupbox_ct form li label{display: block;color: #333;margin-bottom: 5px;font-size: 0.36rem;}
+.pupbox_ct form li input{background: #eee;}
+.pupbox_ct form li input , .pupbox_ct form li select{border:none;color: #333;padding: 0 0.2667rem;display: block;height: 1rem;line-height: 1rem;width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-o-box-sizing: border-box;-ms-box-sizing: border-box;}
+
+
+.bannerLinks{width: 100%;margin-top: 0.2667rem}
+.bannerLinks a{display: block;margin-bottom: 0.2667rem}
+.bannerLinks a img{width: 100%}
+
+/*按钮*/
+.btn_block{
+    background: #0082ed;
+    color: #fff;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    text-align: center;
+    margin:0.4rem 0.8rem;
+    display: block;
+    font-size: 0.4rem;
+}
+.btn-blockcircle{
+    border-radius: 0.48rem;
+}
+.bradius-3{
+    border-radius: 3px;
+}
+.btn-orange{
+    background: #ee4c33;
+    color: #fff;
+}
+.btn-gray{
+    background: #eee;
+    color: #666;
+}
+.btn_bottomfixed{height: 1.28rem;position: fixed;bottom: 0;left:0;width: 100%;background: #0082ed;color: #fff;font-size: 0.4rem;text-align: center;line-height: 1.28rem;display: block;}
+a.refresh{text-align: center;display: block;font-size: 0.4rem;color: #333}
+a.refresh i{vertical-align: middle;margin-right: 5px;padding:10px 0;}
+
+ul.tabT{height: 1.0133rem;line-height: 1.0133rem;color: #333;text-align: center;display: flex;flex-direction: row;justify-content: space-between;border-bottom: 1px solid #dcdcdc;}
+ul.tabT li{flex: 1;position: relative;border-bottom: 1px solid #dcdcdc;font-size: 0.32rem}
+ul.tabT li.active{border-bottom: 1px solid #0082ed;color: #0082ed}
+.panel{visibility: visible;}
+
+input.select{background: url(../images/right-arrow.png) right center no-repeat;padding-right: 13px;background-size: 8px auto}
+
+/*weui.css重置*/
+.toolbar, .toolbar .title , .toolbar .picker-button{font-size: 0.4rem;height: 1.2rem;line-height: 1.2rem;background: #eee;}
+.weui-picker-modal .picker-items{font-size: 0.36rem}
+.city-picker{height: 7rem}
+.normalPicker{height: 5.4rem}
+.weui-picker-modal .picker-modal-inner,.weui-picker-modal.picker-modal-inline,.weui-picker-modal .bar + .picker-items,.weui-picker-modal.picker-modal-inline,.weui-picker-modal .picker-modal-inner{height: 5.8rem;background: #fff;}
+.weui-picker-modal .picker-columns-single {height: auto}
+.weui-picker-calendar{height: 14.1rem}
+.weui-picker-calendar .toolbar-inner,.picker-calendar-month-picker, .picker-calendar-year-picker,.weui-picker-calendar .current-year-value{height: 1.2rem;line-height: 1.2rem}
+.picker-calendar-month-picker a.icon-only, .picker-calendar-year-picker a.icon-only{height: 1.2rem;line-height: 1rem}
+.weui-picker-calendar i.icon.icon-prev,.weui-picker-calendar i.icon.icon-next{width: 0.44rem;height: 0.44rem}
+.weui-picker-calendar .picker-modal-inner{height:12.9rem}
+.weui-picker-calendar .picker-calendar-week-days,.picker-calendar-week-days .picker-calendar-week-day {height: 1rem;line-height: 1rem}
+
+
+.normalform ul{border-bottom: 1px solid #dcdcdc}
+.normalform li{height: 1.28rem;line-height: 1.28rem;padding: 0 0.4rem;border-top: 1px solid #dcdcdc;display: flex;flex-direction: row;justify-content: space-between;align-items: center;flex-wrap: wrap;background: #fff;position: relative;}
+.normalform li > label{color: #333;font-size: 0.36rem;position: relative;padding-right: 10px}
+.normalform li > input{height: 100%;text-align: right;flex: 1;font-size: 0.32rem;width: 45%}
+.normalform li.getCode{flex-wrap: nowrap;}
+/*.normalform li.getCode > label{width:30%; }*/
+.normalform li.getCode > input{flex: 1}
+.normalform li a.getCode_btn{text-align: center;color: #fff;padding: 0 3px;border-radius: 3px;background: #0ca5f7;margin-left: 5px;height: 0.72rem;line-height: 0.72rem;display: inline-block;width:136px}
+.normalform li.infoAddress{border-top: 1px solid #e5e5e5;}
+.normalform li i.ico-help2{color: #a0a0a0;font-size: 0.36rem;margin-left: 3px}
+.normalform li span.checkswitch{display: block;position: absolute;right: 0.4rem;top: 50%;transform: translateY(-50%);background: url(../images/switchClose.png) right center no-repeat;background-size: contain;height:48px;width: 27px;z-index: 0}
+.normalform li input:checked + span.checkswitch{background: url(../images/switchOpen.png) right center no-repeat;background-size: contain}
+.normalform li input[type='checkbox']{z-index: 9;opacity: 0}
+.normalform li label small{display: block;line-height: 1;font-size: 75%;margin-top: 3px;color: #666666}
+.normalform li label.twoLine{line-height: 1}
+.normalform li.required label:before{content: "*";position: absolute;display: block;top:50%;right:0;color: red;line-height: 1;transform: translateY(-50%);}
+
+input[type='checkbox'].checkVisible{border:1px solid #a0a0a0;width: 16px;height: 16px;border-radius: 50%;background: #fff;vertical-align: middle;}
+input[type='checkbox'].checkVisible:checked,input[checked='checked'].checkVisible{border:none;background:#00abd8 url(../images/ico-tick.png) center center no-repeat;background-size: 8px;}
+.normalform li > select{background: #fff url(../images/right-arrow.png) right center no-repeat;background-size: 8px auto;text-align: right;padding:0 13px 0 100px;height: 100%;text-align: right;font-size: 0.32rem}
+
+input[required]{position: relative;}
+
+.loadingWrapper{position: fixed;z-index: 10000;width: 100%;height: 100%;overflow: hidden;top: 0;left: 0}
+.loadingBox{position: absolute;border-radius: 10px;background: rgba(0,0,0,0.6);text-align: center;color: #fff;font-size: 14px;width: 108px;height: 108px;overflow: hidden;top: 50%;left: 50%;margin-top: -54px;margin-left: -54px}
+.loadingBox img{width:108px;height: auto;margin-top: 10px}
+
+

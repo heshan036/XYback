@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-mine.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<title>商品评价</title>
+</head>
+<body>
+	<header class="mall_header">
+		<a href="javascript:history.go(-1)" class="arrow_back"><i class="icofont ico-fanhui"></i></a>
+		<h1>商品评价</h1>
+	</header>
+
+	<div class="pro_item comment_product"  onclick="window.location.href='mall-info.html'">
+		<img src="images/pic.png" alt="">
+		<div class="pro_iteminfo">
+			<h3>浪漫风情餐厅</h3>
+			<p>餐厅介绍餐厅介绍餐厅介绍餐厅介绍餐厅介绍</p>
+			<h4>披萨系列5折</h4>
+		</div>
+	</div>
+	
+	<div class="comment_area">
+		<textarea name="" id="comment_area" cols="30" rows="5" placeholder="请写下购买体会或使用体会，评价不得多于120字"></textarea>
+		<p><span id="comment_num">0</span>/<span id="comment_sum">120</span></p>
+	</div>
+
+	<div class="comment_pics" id="uploadPics">
+		<i class="icofont ico-camera"></i><a id="upload_btn"></a>
+	</div>
+
+	<section class="comment_score">
+		<h2>商品评价<small>满意请给5星哦</small></h2>
+		<div class="comment_scoreItem">
+			<h3>商品描述评价</h3>
+			<ul>
+				<li><i class="icofont ico-star"></i></li>
+				<li><i class="icofont ico-star"></i></li>
+				<li><i class="icofont ico-star"></i></li>
+				<li><i class="icofont ico-star"></i></li>
+				<li><i class="icofont ico-star"></i></li>
+			</ul>
+		</div>
+	</section>
+
+	<a class="btn_block" style="margin-top:0.8rem" onclick="submitComment();">提　交</a>
+
+</body>
+<script type="text/javascript" charset="utf-8" src="js/layer.js"></script>
+ <script type="text/javascript" src="js/webuploader.html5only.min.js"></script>
+ <script type="text/javascript" src="js/diyUpload.js"></script>
+ <script>
+ 	var starNum=0;//星级评分分数,默认为0,只能为整数
+ 	$(function(){
+
+ 		//评价字数限制
+ 		$("#comment_area").keydown(function(){
+			var curLength=$("#comment_area").val().length;	
+			var comment_sum=parseInt($("#comment_sum").text())
+			if(curLength>=comment_sum){
+				var num=$("#comment_area").val().substr(0,comment_sum);
+				$("#comment_area").val(num);
+				layer.msg('超过字数限制，多出的字将被截断！', {icon: 5, time: 2000});
+			}
+			else{
+				$("#comment_num").text($("#comment_area").val().length)
+			}
+		})
+
+ 		$("#comment_area").keyup(function(){
+ 			var comment_num=$(this).val().length;
+ 			var comment_sum=parseInt($("#comment_sum").text())
+ 			$("#comment_num").text(comment_num);
+ 			if(comment_num > comment_sum){
+ 				 var inputtxt=$(this).val().substring(0,120);
+ 			   $("#comment_num").val(inputtxt)
+ 				//layer.msg('最多只能输入'+comment_sum+'个字', {icon: 5, time: 2000});
+ 				//return;
+ 			}
+ 			
+ 		})
+
+ 		// 星级评分  
+        $(".comment_score li").click(function(e){  
+        	var _this=$(this);
+            var ind_ =$(this).index();
+            _this.parent("ul").find("li").addClass("active");
+            _this.parent("ul").find("li:gt("+ind_+")").removeClass("active");
+
+            starNum=$(".comment_score li.active").length+'分';//星级评分分数
+        });  
+ 	})
+
+	 $('#upload_btn').diyUpload({
+		url:'http://develop.mmmee.cn/LingMeng/ajaxUpload/myUpload.do',
+		success:function( data ) {
+			//alert(data.statusCode);
+			//console.info( data );
+		},
+		error:function( err ) {
+			//console.info( err );	
+		}	
+	});
+	 
+ 	function submitComment(){
+ 		$('.diyStart').click()
+ 	}
+
+ </script>
+</html>

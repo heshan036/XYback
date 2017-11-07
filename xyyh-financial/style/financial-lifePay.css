@@ -1,0 +1,12 @@
+.lifePay-sec{margin-top: 16px;background: #fff;}
+.lifePay-sec h2{height:36px;line-height: 36px;padding: 0 0.4rem;font-size: 0.4rem;color: #212121}
+.lifePay-sec h2 i{font-size: 0.64rem;color: #f2572d;vertical-align: middle;}
+.lifePay-sec h2 .fr i{color: #a0a0a0}
+.lifePay-sec .sec-con{width: 100%}
+.lifePay-sec .sec-con img{width: 100%}
+
+
+
+.schoolLogos{text-align: center;}
+.schoolLogos a{margin-top: 30px;height: 48px;display: block;width: 100%}
+.schoolLogos a img{height: 100%}

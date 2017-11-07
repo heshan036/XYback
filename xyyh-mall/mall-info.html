@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/swiper-3.3.1.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-info.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<title>浪漫风情餐厅</title>
+	<style>
+		.layui-layer{width: auto}
+	</style>
+</head>
+<body>
+	
+	<header class="mall_header">
+		<a href="javascript:history.go(-1)" class="arrow_back"><i class="icofont ico-fanhui"></i></a>
+		<h1>浪漫风情餐厅</h1>
+	</header>
+	<!-- 广告图 -->
+	<div class="mall_infobanner">
+		<div class="swiper-container">
+		  <div class="swiper-wrapper">
+		   		<a class="swiper-slide"><img src="images/banner2.jpg" alt="兴业银行长沙分行"></a>
+		   		<a class="swiper-slide"><img src="images/banner3.jpg" alt="兴业银行长沙分行"></a>
+		  </div>
+		  <div class="swiper-pagination"></div>
+		</div>
+	</div>
+	<!-- 标题 -->
+	<section class="info_caption">
+		<h2>浪漫风情餐厅<span><i class="icofont ico-canyin"></i><i class="icofont ico-tingche"></i><i class="icofont ico-wifi"></i></span></h2>
+		<p>餐厅介绍餐厅介绍餐厅介绍餐厅介绍餐厅介绍</p>
+		<h3><small>￥</small>60-100/人</h3>
+	</section>
+	
+	<ul class="info_intro">
+		<li><i class="icofont ico-shijian"></i><span>营业时间：10:00-21:00</span></li>
+		<li class="info_introAdr"><i class="icofont ico-dizhi"></i><span>长沙市天心区劳动西路佳盛国际广场2015商铺</span><i class="icofont  ico-arrow"></i></li>
+		<li><i class="icofont ico-dianhua"></i><span>0731-25683256</span></li>
+	</ul>
+
+	<!-- 评论行 -->
+	<section class="info_linkcomment">
+		<h3>好评</h3>
+		<ul class="clearfix">
+			<li class="active"><i class="icofont ico-star"></i></li>
+			<li class="active"><i class="icofont ico-star"></i></li>
+			<li class="active"><i class="icofont ico-star"></i></li>
+			<li class="active"><i class="icofont ico-star"></i></li>
+			<li class="active"><i class="icofont ico-star"></i></li>
+			<li>5分</li>
+		</ul>
+		<a href="mall-info.comments.html"><span>共20个评价</span><i class="icofont  ico-arrow"></i></a>
+	</section>
+
+	<!-- 使用须知 -->
+	<article class="info_con">
+		<h2>使用须知</h2>
+		<div class="info_text">
+			<section>
+				<h3>适用范围</h3>
+				<p>1.凭验证码享受，披萨系列5折，每天限3份；</p>
+				<p>2.优惠仅限堂食</p>
+			</section>
+			<section>
+				<h3>有效期</h3>
+				<p>当天有效</p>
+			</section>
+			<section>
+				<h3>使用规则</h3>
+				<p>1.最高优惠金额500元；</p>
+				<p>2.最多可叠加5张使用</p>
+			</section>
+			<section>
+				<h3>使用时间</h3>
+				<p>2017-01-01-2017-12-31</p>
+			</section>
+		</div>
+	</article>
+
+	<a href="mall-info.text.html" class="info_linkdetails">查看图文详情<span><i class="icofont  ico-arrow"></i></span></a>
+
+
+	<footer class="info_footer">
+		<a id="collect-btn"><i class="icofont  ico-xin"></i>我要收藏</a>
+		<a href="#" class="btn_red" id="puporder_show" onclick="pupshow(this);"><i class="icofont  ico-wodeyuding"></i>免费预订</a>
+	</footer>
+
+	<div class="pup pup_order" id="puporder">
+		<div class="pupbox_bt">
+			<a onclick="puphide(this);" class="pup_orderClose" id="puporder_close"><i class="icofont  ico-cha"></i></a>
+			<figure>
+				<img src="images/pic.png">
+				<figcaption>
+					<h2>浪漫风情餐厅</h2>
+					<p>餐厅介绍餐厅介绍餐厅介绍餐厅介绍餐厅介绍餐厅介绍</p>
+					<span>剩余1份</span><span class="fr">限购2份</span>
+				</figcaption>
+			</figure>
+			<ul class="orderlists clearfix">
+				<li class="active">披萨系列5折</li>
+				<li>披萨系列5折</li>
+			</ul>
+			<footer class="pup_orderfooter">
+				<a onclick="orderConfirm();"><i class="icofont  ico-queding"></i>确定</a>
+			</footer>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/layer.js"></script>
+<script>
+
+	var b_len = $(".mall_infobanner .swiper-slide").length;
+	if(b_len > 1){
+		var mySwiper = new Swiper('.mall_infobanner .swiper-container',{
+	            pagination : '.swiper-pagination',
+	        })
+	}
+
+	function puphide(obj){
+		 event.stopPropagation(); 
+		$(obj).parents("#puporder").fadeOut();
+	}
+
+	function pupshow(obj){
+		 event.stopPropagation(); 
+		$("#puporder").fadeIn();
+	}
+
+
+
+
+	$(function(){
+		// $("#puporder_show").click(function(){
+		// 	$("#puporder").fadeIn();
+		// })
+		$("#collect-btn").click(function(){
+			$(this).addClass("active")
+			layer.msg('收藏成功', {icon: 1, time: 1000});
+		})
+
+		
+		$(document).click(function(e){ 
+			if($("#puporder").is(":visible")){
+				var target = $(e.target); 
+				if(target.closest("#puporder .pupbox_bt").length == 0 ){ 
+					$(".pup").hide(); 
+				}
+			}
+		})
+		$(".pup_order .orderlists li").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+		})
+
+	})
+
+	function orderConfirm(){
+		//加载遮罩层
+		var loadingBox='<div class="loadingBox"><img src="images/loading-2.gif" alt="" class="loadingImg"></div>';
+		$('body').append(loadingBox);
+		var indexLoad=setTimeout(function(){
+			$('.loadingBox').remove()
+		},10000)
+	}
+
+</script>
+</html>

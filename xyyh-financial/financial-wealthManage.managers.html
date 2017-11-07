@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-wealthManage.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<script type="text/javascript" src="js/layer.js"></script>
+	<title>客户经理</title>
+</head>
+<body class="pt">
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>客户经理</h1>
+		<a class="pr" id="morenav" style="display:none"><i class="icofont ico-yuanjiaojuxing1kaobei2"></i></a>
+	</header>
+	
+	<figure class="managerTop">
+		<a href="tel:{$shouye_data['mobile']}"></a>
+		<img src="images/pic.png">
+		<figcaption>
+			<h2>李雪健</h2>
+			<p><i class="icofont ico-dianhua1"></i><span id="managerTop-tel">18659963214</span></p>
+			<p><i class="icofont ico-dizhi"></i><span id="managerTop-adr">兴业银行长沙分行</span></p>
+		</figcaption>
+	</figure>
+	
+<!-- 	<div class="filtrate-wrapper">
+		<ul class="filtrate">
+			<li>全部<i class="icofont ico-arrow"></i></li>
+			<li>全省<i class="icofont ico-arrow"></i></li>
+			<li>离我最近<i class="icofont ico-arrow"></i></li>
+		</ul>
+	</div> -->
+
+	<div class="managerslist" style="margin-top:16px">
+		<section class="managerItem">
+			<a href="tel:18659963214"></a>
+			<h2><b>李雪健</b><small>18659963214</small></h2>
+			<div class="managerAdr"><address>兴业银行长沙分行</address><p><12km</p></div>
+		</section>
+		<section class="managerItem">
+			<h2><b>李雪健</b><small>18659963214</small></h2>
+			<div class="managerAdr"><address>兴业银行长沙分行</address><p><12km</p></div>
+		</section>
+	</div>
+
+	<div class="mutiSelect">
+		<ul class="branchBank">
+			<li class="active">
+				<h2>长沙</h2>
+				<ul class="area">
+					<li class="active">全部</li>
+					<li>天心区</li>
+					<li>芙蓉区</li>
+					<li>岳麓区</li>
+					<li>开福区</li>
+					<li>雨花区</li>
+				</ul>
+			</li>
+			<li class="twoColumn"><h2>岳阳</h2></li>
+			<li class="twoColumn"><h2>株洲</h2></li>
+			<li class="twoColumn"><h2>湘潭</h2></li>
+			<li class="twoColumn"><h2>常德</h2></li>
+		</ul>
+		<div class="subBank">
+			<ul > 
+				<li onclick="choseBank(this);">蔡锷路支行</li>
+				<li onclick="choseBank(this);">定王台支行</li>
+				<li onclick="choseBank(this);">东风路支行</li>
+				<li onclick="choseBank(this);">东塘支行</li>
+				<li onclick="choseBank(this);">分行营业部</li>
+				<li onclick="choseBank(this);">芙蓉中路支行</li>
+				<li onclick="choseBank(this);">河西支行</li>
+				<li onclick="choseBank(this);">江滨支行</li>
+				<li onclick="choseBank(this);">解放路支行</li>
+				<li onclick="choseBank(this);">劳动路支行</li>
+				<li onclick="choseBank(this);">浏阳支行</li>
+				<li onclick="choseBank(this);">南城支行</li>
+				<li onclick="choseBank(this);">三湘支行</li>
+				<li onclick="choseBank(this);">世纪城支行</li>
+				<li onclick="choseBank(this);">曙光路支行</li>
+				<li onclick="choseBank(this);">万家丽路支行</li>
+				<li onclick="choseBank(this);">湘府路支行</li>
+				<li onclick="choseBank(this);">新城支行</li>
+				<li onclick="choseBank(this);">新外滩支行</li>
+				<li onclick="choseBank(this);">星沙支行</li>
+				<li onclick="choseBank(this);">营盘路支行</li>
+				<li onclick="choseBank(this);">雨花机电支行</li>
+				<li onclick="choseBank(this);">南湖路社区支行</li>
+				<li onclick="choseBank(this);">第一湾社区支行</li>
+				<li onclick="choseBank(this);">美林水郡社区支行</li>
+				<li onclick="choseBank(this);">湘江北尚社区支行</li>
+				<li onclick="choseBank(this);">仁和社区支行</li>
+				<li onclick="choseBank(this);">金域华府社区支行</li>
+				<li onclick="choseBank(this);">咸嘉新村社区支行</li>
+				<li onclick="choseBank(this);">凯通国际社区支行</li>
+				<li onclick="choseBank(this);">茂华禧都会社区支行</li>
+				<li onclick="choseBank(this);">格蓝康都社区支行</li>
+			</ul>
+			<ul class="none">
+				<li onclick="choseBank(this);">岳阳营业部</li>
+				<li onclick="choseBank(this);">岳阳天伦城支行</li>
+			</ul>
+			<ul class="none">
+				<li onclick="choseBank(this);">株洲营业部</li>
+				<li onclick="choseBank(this);">株洲芦淞支行</li>
+				<li onclick="choseBank(this);">株洲石峰支行</li>
+				<li onclick="choseBank(this);">株洲北岭社区支行</li>
+			</ul>
+			<ul class="none">
+				<li onclick="choseBank(this);">湘潭营业部</li>
+				<li onclick="choseBank(this);">湘潭易俗河支行</li>
+				<li onclick="choseBank(this);">湘潭雨湖支行</li>
+			</ul>
+			<ul class="none">
+				<li onclick="choseBank(this);">常德营业部</li>
+				<li onclick="choseBank(this);">常德鼎城支行</li>
+				<li onclick="choseBank(this);">常德武陵支行</li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+<script>
+function choseBank(obj){
+	console.log($(obj).text())
+	$(obj).addClass('active')
+	$(".mutiSelect").hide();
+	$("#morenav").show();
+}
+$(function(){
+	$(".branchBank h2").click(function(){
+		var _bank=$(this).parent('li');
+		if(_bank.index() == 0){
+			$(".branchBank").find('.area').slideDown();
+		}else{
+			$(".branchBank").find('.area').slideUp();
+		}
+		_bank.addClass('active').siblings().removeClass('active');
+		$('.subBank').find('ul:eq('+_bank.index()+')').show().siblings().hide();
+	})
+
+	$(".area li").click(function(){
+		$(this).addClass('active').siblings().removeClass('active');
+		//加载地区银行列表
+	})
+
+	$("#morenav").click(function(){
+		$(".mutiSelect").toggle()
+	})
+
+	
+	// 筛选弹窗
+	// $(".filtrate > li").click(function(){
+	// 	var _this=$(this);
+	// 	var _height = $(".managerslist").offset().top;
+	// 	var ind=$(this).index();
+	// 	var filtPup=$(this).parents('.filtrate-wrapper').find('.pup-wrapper');
+	// 	var _dataId=filtPup.attr('data-id');
+	// 	$(".filtrate > li").removeClass("active");
+	// 	$(".filtrate-wrapper").find(".pup-wrapper").remove();
+	// 	if(filtPup.length > 0){
+	// 			if('pup-wrapper'+ind == _dataId){
+	// 				_this.parents('.filtrate-wrapper').find('.pup-wrapper').remove();
+	// 				$(".filtrate > li").removeClass("active");
+	// 				 //启用滚动条
+	// 				 $(document.body).css({
+	// 				   "overflow-x":"auto",
+	// 				   "overflow-y":"auto"
+	// 				 });
+	// 				return;
+	// 			}
+	// 		}
+	// 	var str='';
+	// 	str +='<div class="pup-wrapper" data-id="pup-wrapper'+ind+'" style="top:'+_height+'px"><div class="pup-box">';
+	// 	str +='<a class="active" onclick="choseFilt(this);">全市</a><a onclick="choseFilt(this);">天心区</a><a  onclick="choseFilt(this);">开福区</a>';
+	// 	str +='</div><div class="pupBg" onclick="removePup();"></div></div>';
+	// 	$(this).addClass("active");
+	// 	$(this).parents(".filtrate-wrapper").append(str);
+
+	// 	//禁用滚动条
+	// 		$(document.body).css({
+	// 		   "overflow-x":"hidden",
+	// 		   "overflow-y":"hidden"
+	// 		 });
+		
+		// 点击空白处删除弹窗
+		// $(document).click(function(e){ 
+		// 	e.stopPropagation();
+		// 	var target = $(e.target); 
+		// 	if(target.closest(".pup-box").length == 0 && target.closest(".filtrate > li").length == 0){ 
+		// 		$(".pup-wrapper").remove(); 
+		// 		$(".filtrate > li").removeClass("active");
+		// 	}
+		// })
+// 	})
+
+ })
+
+// function removePup(){
+// 	$(".pup-wrapper").remove(); 
+// 	$(".filtrate > li").removeClass("active");
+// }
+
+//选择筛选项目
+// function choseFilt(obj){
+// 	var choseTxt=$(obj).text() //选择内容
+// 	$(".filtrate li.active").html(choseTxt+'<i class="icofont ico-arrow"></i>')
+// 	$(obj).parents(".pup-wrapper").remove();
+// }
+
+</script>
+</html>

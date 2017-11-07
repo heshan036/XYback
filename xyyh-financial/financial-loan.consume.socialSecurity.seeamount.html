@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-loan.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<title>初审额度</title>
+</head>
+<body class="pt">
+	<!-- navbar -->
+	<header class="top_header">
+		<a class="pl topback"  href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>初审额度</h1>
+		<a class="pr home"  href="financial-index.html"><i class="icofont ico-homefill"></i></a>
+	</header>
+
+	<article class="hcircle">
+		<canvas id="amountCircle" width="160" height="160"></canvas>
+		<hgroup>
+			<h4>您的初审额度</h4>
+			<h2><span id="amount">54</span>万</h2>
+		</hgroup>
+	</article>
+
+	<p class="amounttxt">以上估算仅供参考<br>受个人征信影响，请以最终审批额度为准</p>
+	<a class="btn_block bradius-3" onclick="applyFor();">申请贷款</a>
+	<a class="refresh" href="javascript:history.go(-1)"><i class="icofont ico-zhongce"></i>重新测</a>
+	
+	<!-- 申请贷款弹窗 -->
+	<div class="pupbox_ct none" id="applyFor">
+		<form id="jionform">
+			<ul>
+				<li>
+					<label>申请贷款金额：</label>
+					<input type="number" placeholder="请输入申请贷款金额" id="apply_money">
+				</li>
+				<li>
+					<label>手机号码：</label>
+					<input type="tel" placeholder="请输入预约者手机号码" id="mobile"  maxlength=11 onpropertychange="checkMobile(this.value)"
+                	onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required>
+				</li>
+			</ul>
+		</form>
+	</div>
+
+
+	<div class="loadingWrapper none">
+		<div class="loadingBox">
+			<img src="images/timg.gif">
+			<p>提交中...</p>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/layer.js"></script>
+<script>
+	var amount=parseInt($("#amount").text());
+	var ctx=document.getElementById('amountCircle').getContext('2d');
+	// 绘制底部灰色圆环
+	ctx.strokeStyle="#dcdcdc";
+	ctx.lineWidth = 6;
+	ctx.beginPath();
+	ctx.arc(80,80,74,0,2*Math.PI);
+	ctx.closePath();
+	ctx.stroke();
+	// 绘制顶部额度圆环
+	ctx.strokeStyle="#f16d15";
+	ctx.beginPath();
+	ctx.arc(80,80,74,1.5*Math.PI,(1.5+amount/500)*Math.PI);
+	ctx.stroke();
+
+
+	function applyFor(){
+		layer.open({
+			type:1,
+			title:false,
+			shadeClose: true, //点击遮罩关闭
+			content: $('#applyFor'),
+			btn:['确定','取消'],
+			yes:function(index,layero){
+				//按钮【确定】的回调
+				var ajaxUrl =  msUrl+ "/jinrong/bank.php/home/dreamcard/first_house_credit"; //接口地址
+				var apply_money=$("#apply_money").val();
+				var mobile = $("#mobile").val();
+				if(apply_money == '' || mobile==''){ //必填项没有填写，则提示信息
+			    	layer.msg('必填信息不能为空', {
+					     icon: 2,
+						 time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					});
+					return
+			    }
+				jQuery.support.cors = true;    
+				//通过Ajax提交后台
+				$.ajax({
+					 url:ajaxUrl,
+				     type:"POST",
+				     dataType:"json",
+				     timeout:"3000",
+				     async: "false",
+				     data:{
+			     		applyMoney:apply_money,
+					    mobile:mobile
+					},
+					 beforeSend: function(){			
+					 	$(".loadingWrapper").show()
+					  },
+					 complete : function(){	
+					 	$(".loadingWrapper").hide()
+					 },				    	 	  
+				   	success:function(result){
+			   			console.log("============"+result.statusCode+"=="+result.statuszh);	    	
+	       			    if(result.statusCode == 1000){
+	       				 	layer.msg(result.statuszh, {
+									  icon: 1,
+									  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+										});	  
+							layer.close(index)   					
+	       			   		window.location.href='financial-loan.consume.mortgage.noApply.html';
+	       			    }else{
+			       			layer.msg(result.statuszh, {
+								  icon: 2,
+								  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+							});		       				
+				      	}          
+				    }
+				});
+			},
+			cancel:function(index,layero){
+				//按钮【取消】的回调
+				console.log("取消")
+			}
+		})
+
+	}
+</script>
+</html>

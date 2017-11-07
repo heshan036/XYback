@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/financial-wealthManage.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<title>安愉储蓄</title>
+</head>
+<body class="pt" style="background:#fff">
+	<header class="top_header">
+		<a class="pl topback" href="javascript:history.go(-1)"><i class="icofont ico-arrow"></i></a>
+		<h1>安愉储蓄</h1>
+	</header>
+
+	<article class="content">
+		<header class="info_top">
+			<hgroup>
+				<h3>消费贷款</h3>
+				<p>发布：<time>2017-01-01</time></p>
+			</hgroup>
+		</header>
+		<div class="infotxtCon">
+			<p>按揭联动贷按揭联动贷按按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷按揭联动贷揭联动贷按揭联动贷按揭联动贷</p>
+		</div>
+	</article>
+
+	<div class="wealthManage-main">
+		<p class="c-orange1">欢迎通过“手机银行·储蓄产品·安愉存款”购买</p>
+		<div class="wealthManage-sec">
+			<img src="images/erweima.png" alt="">
+			<a class="btn_block btn-blockcircle">长按二维码抢！</a>
+		</div>
+		<div class="wealthManage-sec">
+			<img src="images/finacial-saving2.png" alt="">
+			<a class="btn_block btn-blockcircle" onclick="pupshow(this);">我要参与</a>
+		</div>
+	</div>
+	
+	<div class="pupbox_ct none" id="jionform">
+		<form>
+			<ul>
+				<li>
+					<label>姓　　名：</label>
+					<input type="text" placeholder="请输入预约者姓名" id="name" name="name" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,''))" required>
+				</li>
+				<li>
+					<label>手机号码：</label>
+					<input type="tel" placeholder="请输入预约者手机号码" id="mobile" name="mobile" maxlength='11' onpropertychange="checkMobile(this.value)"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required>
+				</li>
+				<li>
+					<label>分行/支行：</label>
+					<select name="bankName" id="bankName">
+						<option value="兴业银行长沙分行">兴业银行长沙分行</option>
+					</select>
+				</li>
+			</ul>
+		</form>
+	</div>
+
+	<div class="loadingWrapper none">
+		<div class="loadingBox">
+			<img src="images/timg.gif">
+			<p>提交中...</p>
+		</div>
+	</div>	
+
+</body>
+<script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/layer.js"></script>
+<script>
+	function pupshow(obj){
+		layer.open({
+			type:1,
+			title:false,
+			shadeClose: true, //点击遮罩关闭
+			content: $('#jionform'),
+			btn:['确定','取消'],
+			scrollbar: false,
+			yes:function(index,layero){
+				//按钮【确定】的回调
+				var ajaxUrl =  msUrl+ "/jinrong/bank.php/home/dreamcard/first_house_credit"; 
+				var name=$("#name").val();
+				var mobile=$("#mobile").val();
+				var bankName=$("#bankName").val();
+				if(bankName == '' || mobile=='' || name == ''){ //必填项没有填写，则提示信息
+			    	layer.msg('必填信息不能为空', {
+					     icon: 2,
+						 time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					});
+					return
+				}
+				jQuery.support.cors = true;    
+				//通过Ajax提交后台
+				$.ajax({
+					url:ajaxUrl,
+				    type:"POST",
+				    dataType:"json",
+				    timeout:"3000",
+				    async: "false",
+				    data:{
+				        name:name,
+					    mobile:mobile,
+					    bankName:bankName
+					},
+					beforeSend: function(){			
+					 	$(".loadingWrapper").show()
+					},
+					complete : function(){		
+					 	$(".loadingWrapper").hide()
+					},				    	 	  
+				   	success:function(result){
+			   			console.log("============"+result.statusCode+"=="+result.statuszh);	    	
+	       			    if(result.statusCode == 1000){
+	       				 	layer.msg(result.statuszh, {
+								icon: 1,
+								time: 2000 //2秒关闭（如果不配置，默认是3秒）
+							});
+							layer.close(index)	     					
+	       			    }else{
+			       			layer.msg(result.statuszh, {
+								icon: 2,
+								time: 2000 //2秒关闭（如果不配置，默认是3秒）
+							});		       				
+				        }          
+				    }
+				});
+			},
+			cancel:function(index,layero){
+				//按钮【取消】的回调
+				console.log("取消")
+			}
+		})
+	}
+</script>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no" /><!--不允许用户缩放-->
+	<meta content="yes" name="apple-mobile-web-app-capable" /><!--离线应用的另一个技巧-->
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" /><!--指定的iphone中safari顶端的状态条的样式-->
+	<meta name="renderer" content="webkit"><!-- 启用360浏览器的极速模式(webkit) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 避免IE使用兼容模式 -->
+	<meta name="HandheldFriendly" content="true"><!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+	<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+	<meta name="x5-fullscreen" content="true"><!-- QQ强制全屏 -->
+	<meta name="browsermode" content="application"><!-- UC应用模式 -->
+	<meta name="x5-page-mode" content="app"><!-- QQ应用模式 -->
+	<meta name="msapplication-tap-highlight" content="no"><!-- windows phone 点击无高光 -->	
+	<link rel="stylesheet" type="text/css" href="style/base.css"/>
+	<link rel="stylesheet" type="text/css" href="style/swiper-3.3.1.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-common.css"/>
+	<link rel="stylesheet" type="text/css" href="style/mall-index.css"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<title>首页</title>
+</head>
+<body class="pb">
+	<header class="index_header">
+		<a href="mall_index.html"><img src="images/logo_mall.png" alt="兴商城"></a>
+		<div class="index_search" onclick="window.location.href='mall-search.html'"><span><i class="icofont ico-fangdajing"></i></span><input type="text" value="请输入商家或关键词" readonly></div>
+	</header>
+
+	<div class="mall_banner">
+		<div class="swiper-container">
+		  <div class="swiper-wrapper">
+		   		<a class="swiper-slide"><img src="images/banner2.jpg" alt="兴业银行长沙分行"></a>
+		   		<a class="swiper-slide"><img src="images/banner3.jpg" alt="兴业银行长沙分行"></a>
+		  </div>
+		  <div class="swiper-pagination"></div>
+		</div>
+	</div>
+	
+
+	<div class="index_classify clearfix">
+		<a  onclick="window.location.href='mall-shop.html'"><p><span><img src="images/mall_eat.png" alt="美食惠"></span><b>美食惠</b></p></a>
+		<a  onclick="window.location.href='mall-shop.html'"><p><span><img src="images/mall_move.png" alt="运动惠"></span><b>运动惠</b></p></a>
+		<a  onclick="window.location.href='mall-shop.html'"><p><span><img src="images/mall_car.png" alt="洗车惠"></span><b>洗车惠</b></p></a>
+		<a  onclick="window.location.href='mall-shop.html'"><p><span><img src="images/mall_live.png" alt="百货惠"></span><b>百货惠</b></p></a>
+		<a  onclick="window.location.href='mall-shop.html'"><p><span><img src="images/mall_eat.png" alt="早餐惠"></span><b>早餐惠</b></p></a>
+		<a  onclick="window.location.href='mall-shop.html'"><p><span><img src="images/mall_breakfast.png" alt="水果惠"></span><b>水果惠</b></p></a>
+		<a  onclick="window.location.href='mall-shop.html'"><p><span><img src="images/mall_film.png" alt="电影惠"></span><b>电影惠</b></p></a>
+		<a  onclick="window.location.href='mall-shop.html'"><p><span><img src="images/mall_sale.png" alt="特惠商户"></span><b>特惠商户</b></p></a>
+	</div>
+
+	<div class="index_adlists">
+		<div class="seckill">
+			<h2>秒杀</h2>
+			<a href="#" class="aditem">
+				<hgroup><h3>SPA 1元秒杀1元秒杀</h3><h4>美容健身1元抢1元秒杀</h4></hgroup>
+				<img src="images/banner_little1.png">
+			</a>
+			<a href="#" class="aditem">
+				<hgroup><h3>SPA 1元秒杀</h3><h4 style="color:#009f95">美容健身1元抢</h4></hgroup>
+				<img src="images/banner_little1.png">
+			</a>
+			<a href="#" class="aditem">
+				<hgroup><h3>SPA 1元秒杀</h3><h4 style="color:#fb6581">美容健身1元抢</h4></hgroup>
+				<img src="images/banner_little1.png">
+			</a>
+		</div>
+		<div class="nearbyshops">
+			<h2>附近商家</h2>
+			<a href="#" class="aditem">
+				<hgroup><h3>株洲方特</h3><h4 style="color:#38b3f1">6元亲子游</h4></hgroup>
+				<img src="images/banner_little2.png">
+			</a>
+			<a href="#" class="aditem">
+				<hgroup><h3>株洲方特</h3><h4 style="color:#8f73fc">6元亲子游</h4></hgroup>
+				<img src="images/banner_little2.png">
+			</a>
+			<a href="#" class="aditem">
+				<hgroup><h3>株洲方特</h3><h4 style="color:#32bb04">6元亲子游</h4></hgroup>
+				<img src="images/banner_little2.png">
+			</a>
+		</div>
+	</div>
+
+	<div class="index_goodslist">
+		<ul class="tabT">
+			<li class="active">人气最高</li>
+			<li>附近优惠</li>
+		</ul>
+		<div class="tabC">
+			<div class="panel">
+				<div class="goodsitem" onclick="window.location.href='mall-info.html'">
+					<div class="goodsitem_pic"><img src="images/pic.png"></div>
+					<div class="goodsitem_info">
+						<h3>零距离健身</h3>
+						<p>高级健身会所，免费健身体验课程，男女通用，会所免费提供WiFi</p>
+						<b>免费健身</b>
+						<small> < 512.22km</small>
+					</div>
+				</div>
+				<div class="goodsitem" onclick="window.location.href='mall-info.html'">
+					<div class="goodsitem_pic"><img src="images/pic.png"></div>
+					<div class="goodsitem_info">
+						<h3>零距离健身</h3>
+						<p>高级健身会所，免费健身体验课程，男女通用，会所免费提供WiFi</p>
+						<b>免费健身</b>
+						<small> < 512.22km</small>
+					</div>
+				</div>
+				<div class="goodsitem" onclick="window.location.href='mall-info.html'">
+					<div class="goodsitem_pic"><img src="images/pic.png"></div>
+					<div class="goodsitem_info">
+						<h3>零距离健身</h3>
+						<p>高级健身会所，免费健身体验课程，男女通用，会所免费提供WiFi</p>
+						<b>免费健身</b>
+						<small> < 512.22km</small>
+					</div>
+				</div>
+			</div>
+			<div class="panel none">
+				<div class="goodsitem" onclick="window.location.href='mall-info.html'">
+					<div class="goodsitem_pic"><img src="images/pic.png"></div>
+					<div class="goodsitem_info">
+						<h3>零距离健身</h3>
+						<p>高级健身会所，免费健身体验课程，男女通用，会所免费提供WiFi</p>
+						<b>免费健身</b>
+						<small> < 512.22km</small>
+					</div>
+				</div>
+				<div class="goodsitem" onclick="window.location.href='mall-info.html'">
+					<div class="goodsitem_pic"><img src="images/pic.png"></div>
+					<div class="goodsitem_info">
+						<h3>零距离健身</h3>
+						<p>高级健身会所，免费健身体验课程，男女通用，会所免费提供WiFi</p>
+						<b>免费健身</b>
+						<small> < 512.22km</small>
+					</div>
+				</div>
+			</div>
+
+			<!-- 加载中 -->
+			<div class="loading none" id="loading">
+				<img src="images/loading.gif" alt="">
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="mall_footer">
+		<a href="mall-index.html" class="active"><i class="icofont ico-shouye"></i><p>活动</p></a>
+		<a href="mall-shop.html"><i class="icofont ico-sale"></i><p>商家</p></a>
+		<a href="mall-mine.html"><i class="icofont ico-yonghu"></i><p>我的账号</p></a>
+		<a href="mall-card.html"><i class="icofont ico-xinyongqia"></i><p>我要办卡</p></a>
+	</footer>
+</body>
+<script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
+<script>
+	var mySwiper = new Swiper('.mall_banner .swiper-container',{
+            pagination : '.swiper-pagination',
+        })
+	$(function(){
+		$(".mall_footer > a").each(function(){
+			if($(this).hasClass("active")){
+				var cls=$(this).find("i").attr("class");
+				$(this).find("i").attr("class",cls+"fill");
+			}
+		})
+		$(".index_goodslist .tabT > li").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+			$(this).parents(".index_goodslist").find(".tabC > .panel:eq("+$(this).index()+")").show().siblings().hide();
+		})
+		$(window).scroll(function(){
+			var scrolltop=$(document).scrollTop();
+			if(scrolltop !=0 ){
+				$(".index_header").addClass("fixed")
+				$(".index_header > a").find("img").attr("src","images/logo_white.png")
+				}else{
+					$(".index_header").removeClass("fixed")
+					$(".index_header > a").find("img").attr("src","images/logo_mall.png")
+					}
+		})
+
+		//var loadingImg='<img src="images/loading2.gif">';
+		//加载进度条
+		$(".tabC").find(".goodsitem").hide();
+		$(".tabC").find(".panel").append('<p class="tc" style="margin:20px 0"><img src="images/loading2.gif"></p>')
+		setTimeout(function(){	
+			$(".tabC").find(".goodsitem").show();		
+			$(".tabC").find(".panel").children('p').remove()
+		},5000)
+
+	})
+
+//文档高度
+function getDocumentTop() {
+    var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+    if (document.body) {
+        bodyScrollTop = document.body.scrollTop;
+    }
+    if (document.documentElement) {
+        documentScrollTop = document.documentElement.scrollTop;
+    }
+    scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+    return scrollTop;
+}
+
+//可视窗口高度
+function getWindowHeight() {
+    var windowHeight = 0;
+    if (document.compatMode == "CSS1Compat") {
+        windowHeight = document.documentElement.clientHeight;
+    } else {
+        windowHeight = document.body.clientHeight;
+    }
+    return windowHeight;
+}
+
+//滚动条滚动高度
+function getScrollHeight() {
+    var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+    if (document.body) {
+        bodyScrollHeight = document.body.scrollHeight;
+    }
+    if (document.documentElement) {
+        documentScrollHeight = document.documentElement.scrollHeight;
+    }
+    scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+    return scrollHeight;
+}
+
+window.onscroll = function () {
+    //监听事件内容
+    if(getScrollHeight() == getWindowHeight() + getDocumentTop()){
+        //当滚动条到底时,这里是触发内容
+        $("#loading").show()
+        //异步请求数据,局部刷新dom
+        
+        //ajax_function()
+    }
+}
+
+</script>
+</html>
